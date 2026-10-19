@@ -13,7 +13,9 @@
     "test:safari-mobile": "node tests/apple-safari-mobile.cjs",
     "build:safari": "node scripts/build-apple-safari.cjs",
     "test:presentation": "node tests/presentation.cjs",
-    "test:popup-layout": "node tests/retro-popup.cjs"
+    "test:popup-layout": "node tests/retro-popup.cjs",
+    "audit:brand": "node scripts/audit-retired-brand.cjs",
+    "test:legal": "node tests/legal-pages.cjs"
   },
   "devDependencies": {
     "playwright": "1.57.0"

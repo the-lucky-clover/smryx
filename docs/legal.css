@@ -1,0 +1,35 @@
+.legal { max-width:960px; padding-top:65px; padding-bottom:80px; }
+.legal h1 { font-size:clamp(43px,6vw,65px); }
+.legal .legal-intro { font-size:16px; line-height:1.85; color:#64735c; max-width:710px; }
+.legal h2 { font-size:25px; line-height:1.3; letter-spacing:-.7px; margin:38px 0 14px; }
+.legal p,.legal li { font-size:14px; line-height:1.9; color:#617257; }
+.legal li { margin-block:8px; }
+.legal ul { padding-left:22px; }
+.legal a { color:#356542; overflow-wrap:anywhere; }
+.legal code { font-size:12px; overflow-wrap:anywhere; }
+.legal-callout { padding:22px 26px; margin:30px 0; background:#e7edde; border:1px solid #cedac1; border-radius:14px; }
+.legal-callout h2 { font-size:16px; margin:0 0 12px; letter-spacing:0; }
+.legal-callout ul { margin:0; }
+.legal-callout li { font-size:13px; margin:7px 0; }
+.legal-toc { display:flex; flex-wrap:wrap; gap:10px 20px; padding:16px 0 24px; border-bottom:1px solid #cad6bf; }
+.legal-toc a { font-size:12px; min-height:30px; display:inline-flex; align-items:center; }
+.legal-note { border-top:1px solid #cad6bf; padding-top:20px; margin-top:35px; }
+footer.corporate-footer { display:grid; grid-template-columns:minmax(0,1fr) 150px 190px; align-items:start; gap:55px; padding-top:35px; padding-bottom:42px; }
+.corporate-brand p { font-size:11px; color:#6e7e63; margin:16px 0 12px; }
+.corporate-brand small { font-size:10px; color:#7a876e; }
+footer.corporate-footer nav { display:flex; flex-direction:column; gap:5px; margin:0; width:auto; padding:0; align-items:flex-start; }
+.corporate-footer nav h2 { font:600 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing:.2px; margin:3px 0 10px; color:#3e5736; }
+footer.corporate-footer nav a { color:#64765b; font-size:11px; line-height:1.7; display:inline-flex; align-items:center; min-height:30px; }
+footer.corporate-footer nav a:hover { color:#2c5737; text-decoration:underline; }
+@media(max-width:700px) {
+  .legal { padding-top:40px; padding-bottom:55px; }
+  .legal .legal-intro { font-size:14px; }
+  .legal h2 { font-size:22px; margin-top:31px; }
+  .legal p,.legal li { font-size:13px; }
+  .legal-callout { padding:18px; }
+  .legal-toc { gap:3px 17px; }
+  .legal-toc a { min-height:40px; }
+  footer.corporate-footer { grid-template-columns:1fr 1fr; gap:28px 18px; padding-top:28px; padding-bottom:30px; }
+  .corporate-brand { grid-column:1/-1; }
+  footer.corporate-footer nav a { min-height:40px; font-size:12px; }
+}

@@ -4,6 +4,8 @@ Sumyst summarizes webpages, YouTube videos and PDFs using your signed-in ChatGPT
 
 [Visit the Sumyst website](https://the-lucky-clover.github.io/sumyst/). The static site lives in `docs/` and publishes through `.github/workflows/pages.yml`. Onboarding uses current product screenshots instead of a video. Video and selected-text actions share the jade/violet glass surface in `shared/glass-button.css`; run `node scripts/sync-glass-button.cjs` after editing that stylesheet.
 
+The website footer links the [Privacy Policy](https://the-lucky-clover.github.io/sumyst/privacy.html) and [Terms of Use](https://the-lucky-clover.github.io/sumyst/terms.html). Run `node scripts/sync-site-footer.cjs` after changing the shared footer. `npm run audit:brand` checks current source, minified bundles, escaped/joined/base64 strings, file paths, and ZIP contents for retired branding; it does not rewrite Git history or remove third-party licensing notices. The audit also runs on repository pushes and pull requests.
+
 In **Settings → Popup design**, choose **City Console** for an optional 1950s-style Bakelite reading console with brass trim and tactile red controls. **Classic** remains the default. The layout preference is independent of light/dark mode and custom palettes, updates open popups immediately, and preserves summaries and question support. Run `npm run test:popup-layout` for its browser regression.
 
 ## Install in Chrome or Chromium
