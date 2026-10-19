@@ -1,0 +1,14 @@
+@media(max-width:600px), (pointer:coarse) and (max-height:500px){
+  #chatgpt-summarize-popup{
+    position:fixed!important;
+    top:calc(var(--bm-safari-visible-top,0px) + max(12px,env(safe-area-inset-top)))!important;
+    right:auto!important;
+    left:calc(var(--bm-safari-visible-left,0px) + max(12px,env(safe-area-inset-left)))!important;
+    width:calc(min(100vw,var(--bm-safari-visible-width,100vw)) - max(12px,env(safe-area-inset-left)) - max(12px,env(safe-area-inset-right)))!important;
+    height:calc(min(100dvh,var(--bm-safari-visible-height,100dvh)) - max(12px,env(safe-area-inset-top)) - max(12px,env(safe-area-inset-bottom)))!important;
+    min-width:0!important;min-height:0!important;
+    max-width:none!important;max-height:none!important;
+    margin:0!important;box-sizing:border-box!important;
+    transform:none!important;resize:none!important;
+  }
+}

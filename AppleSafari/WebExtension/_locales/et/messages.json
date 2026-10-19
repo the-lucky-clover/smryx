@@ -1,0 +1,312 @@
+{
+  "appName": {
+    "message": "Sumyst",
+    "description": "The name of the web-extension (45)"
+  },
+  "appDesc": {
+    "message": "Sumyst summarizes webpages, videos and PDFs, answers questions, and organizes batch results using your signed-in ChatGPT session.",
+    "description": "The descirption of the web-extension (132)"
+  },
+  "defaultQuestion": {
+    "message": "You are an ultra-intelligent, semi-autonomous AI summarizer with forensic-level detail extraction capabilities. Your mission is to analyze {{URL}} and report back every technical, procedural, and contextual detail with surgical precision.\nYou are not allowed to generalize, skip steps, or group actions vaguely. Every individual action, setting, and config **must be extracted and documented in order**. FORMAT YOUR OUTPUT AS FOLLOWS:\n1. **Structured Outline of `{{TITLE}}`**\n\n- Break the content down into **sections**, then further into **detailed, sequential steps** (not grouped).\n- Every action, tool, file, and command should be an individual sub-step.\n- Include any visual references mentioned: buttons, menu names, tabs, sliders, or filenames.\n\n2. **Bullet Summary (w/ Emojis):**\n   - Tools/frameworks\n   - Ordered steps\n   - Devices/Specs\n   - Test/benchmarks\n   - Files/config paths\n   - Pricing/sponsorship\n   - Full URLs\n   - Privacy/telemetry concerns\n3. **TL;DR (3–15 Sentences):**\n   - Write a detailed yet readable synthesis.\n   - Must include all named devices, tools, techniques, and results.\n   - If steps were shown in video, summarize their **purpose and result**.\n4. **Full Link Breakdown:**\n   - Show every URL in full.\n   - Label: Free, Affiliate/Sponsored, Docs, Risky or tracking.\n     NEVER summarize vaguely. NEVER combine steps. NEVER skip names, models, commands, links, or tool versions. Think like an engineer writing documentation for a system rebuild. Output only text. Be relentlessly thorough. Assume the user needs to *rebuild the whole demo from scratch using your output*.",
+    "description": "The default question used for ChatGPT"
+  },
+  "defaultSystemMessage": {
+    "message": "",
+    "description": "The default System Message used for ChatGPT"
+  },
+  "thankYouForInstalling": {
+    "message": "Täname installimise eest",
+    "description": "Thank you message after installing the extension"
+  },
+  "pinExtensionTutorial": {
+    "message": "Kinnita see laiendus oma tööriistaribale, et alustada.",
+    "description": "Tutorial message for pinning the extension to the toolbar"
+  },
+  "selectProviderToSummarize": {
+    "message": "Palun vali oma teenusepakkuja kokkuvõtete tegemiseks"
+  },
+  "installSuccess": {
+    "message": "Valmis! Võta kokku iga veebileht või YouTube video ühe klõpsuga Sumyst'i kasutades! Võta meiega ühendust iga <a>küsimuse või tagasiside</a> jaoks. Head kokkuvõtete tegemist!",
+    "description": "Success message after installing the extension"
+  },
+  "happySumarize": {
+    "message": "Head kokkuvõtete tegemist"
+  },
+  "options": {
+    "message": "Valikud",
+    "description": "Used for opening the extension options"
+  },
+  "prompt": {
+    "message": "Küsimus",
+    "description": "Used for describing the prompt settings section"
+  },
+  "misc": {
+    "message": "Muu",
+    "description": "Used for describing the misc settings section"
+  },
+  "memory": {
+    "message": "Mälu",
+    "description": "Used for describing the memory settings section"
+  },
+  "appearance": {
+    "message": "Välimus",
+    "description": "Used for describing the appearance settings section"
+  },
+  "behaviour": {
+    "message": "Käitumine",
+    "description": "Used for describing the behaviour settings section"
+  },
+  "chatGPTProviderDescription": {
+    "message": "API, mis võimaldab ChatGPT veebirakendust, tasuta, kuid mõnikord ebastabiilne",
+    "description": "Description of the ChatGPT API Provider"
+  },
+  "openAIProviderDescription": {
+    "message": "OpenAI ametlik API, stabiilsem, maksab kasutuse järgi",
+    "description": "Description of the OpenAI API Provider"
+  },
+  "apiKey": {
+    "message": "API võti",
+    "description": "Used for selecting the API Key"
+  },
+  "question": {
+    "message": "Küsimus",
+    "description": "Used for selecting the question"
+  },
+  "systemMessage": {
+    "message": "Süsteemi sõnum",
+    "description": "Used for selecting the System Message"
+  },
+  "model": {
+    "message": "Mudel",
+    "description": "Used for selecting the model"
+  },
+  "save": {
+    "message": "Salvesta",
+    "description": "Used for saving the extension options"
+  },
+  "reset": {
+    "message": "Lähtesta",
+    "description": "Used for resetting the extension options"
+  },
+  "aiProvider": {
+    "message": "AI teenusepakkuja",
+    "description": "Used for selecting the AI provider"
+  },
+  "loading": {
+    "message": "Laadimine...",
+    "description": "Status message used when loading"
+  },
+  "moreInfo": {
+    "message": "Rohkem infot",
+    "description": "Used for opening a new modal with more info"
+  },
+  "requestOpenAIProvider": {
+    "message": "OpenAI nõuab aeg-ajalt turvakontrolli läbimist. Kui see jätkuvalt juhtub, muuda AI teenusepakkuja OpenAI API-ks laienduse valikutes.",
+    "description": "Status message when failed to load response from OpenAI second time in a row"
+  },
+  "waitingForChatGPTResponse": {
+    "message": "Ootan ChatGPT vastust...",
+    "description": "Status message used when waiting for ChatGPT response"
+  },
+  "failedToLoadResponseFromChatGPT": {
+    "message": "ChatGPT vastuse laadimine ebaõnnestus",
+    "description": "Status message used when failed to load response from ChatGPT"
+  },
+  "extractingPageContent": {
+    "message": "Lehe sisu eraldamine...",
+    "description": "Status message used when extracting page content"
+  },
+  "info": {
+    "message": "Info"
+  },
+  "tryItNow": {
+    "message": "Proovi kohe",
+    "description": "Action button used after successful installation"
+  },
+  "rateExtensionInWebstore": {
+    "message": "Meeldib see laiendus? Anna meile 5 tähte"
+  },
+  "recommendExtension": {
+    "message": "kokkuvõttega? Palun jaga <a>laiendust</a>"
+  },
+  "refreshOpenAILogin": {
+    "message": "Palun logi sisse ja läbi Cloudflare'i kontroll <a>chatgpt.com</a> lehel"
+  },
+  "refreshDeepSeekChatLogin": {
+    "message": "Palun logi sisse ja läbi Cloudflare'i kontroll <a>chat.deepseek.com</a> lehel"
+  },
+  "copy": {
+    "message": "Kopeeri",
+    "description": "Used for copying text to clipboard"
+  },
+  "retry": {
+    "message": "Proovi uuesti",
+    "description": "Used invalidating a ChatGPT answer"
+  },
+  "summarize": {
+    "message": "Kokkuvõte",
+    "description": "Tab label"
+  },
+  "chat": {
+    "message": "Vestlus",
+    "description": "Tab label"
+  },
+  "close": {
+    "message": "Sulge",
+    "description": "Used for closing the extension popup"
+  },
+  "chatgptLoggedIn": {
+    "message": "ChatGPT sisse logitud"
+  },
+  "chatgptNotLoggedIn": {
+    "message": "ChatGPT pole sisse logitud"
+  },
+  "login": {
+    "message": "Logi sisse"
+  },
+  "useOpenAiApi": {
+    "message": "Kasuta oma OpenAI API võtit"
+  },
+  "originalTranscript": {
+    "message": "Transkriptsioon",
+    "description": "Tab label"
+  },
+  "summarizeText": {
+    "message": "Võta kokku valitud tekst"
+  },
+  "summarizeAll": {
+    "message": "Võta kõik kokku"
+  },
+  "summarizeNextBatch": {
+    "message": "Võta järgmine partii kokku"
+  },
+  "summarized": {
+    "message": "Kokku võetud"
+  },
+  "authenticateChatGPT": {
+    "message": "Palun authentimiseks kasuta ChatGPT-d"
+  },
+  "addOpenAIKey": {
+    "message": "Palun lisa oma OpenAI API võti"
+  },
+  "addDeepSeekAPIKey": {
+    "message": "Palun lisa oma DeepSeek API võti"
+  },
+  "ready": {
+    "message": "Valmis"
+  },
+  "howToObtainKey": {
+    "message": "Kuidas saada oma API võtit"
+  },
+  "wrongApiKey": {
+    "message": "Mudelite hankimine ebaõnnestus. Palun kontrolli oma API võtit."
+  },
+  "showYoutubeButton": {
+    "message": "Näita YouTube kokkuvõtte nuppu"
+  },
+  "showSummarizeButton": {
+    "message": "Näita ujuvat kokkuvõtte nuppu"
+  },
+  "summarizeFullText": {
+    "message": "Võta alati kogu tekst kokku"
+  },
+  "availableAskQuestion": {
+    "message": "Saadaval ainult OpenAI API teenusepakkujaga"
+  },
+  "askQuestion": {
+    "message": "Küsi küsimus (Beeta)"
+  },
+  "askQuestionIntro": {
+    "message": "Tere! 🤖 Olen siin, et aidata vastata mis tahes küsimustele, mis sul selle lehe sisu kohta on. Kuidas saan sind täna aidata?"
+  },
+  "summary": {
+    "message": "Kokkuvõte"
+  },
+  "alertAskQuestion": {
+    "message": "Selle funktsiooni kasutamiseks vali palun OpenAI API oma teenusepakkujaks valikute lehel."
+  },
+  "suggestionOpenAI": {
+    "message": "Kasuta OpenAI API-t usaldusväärsemate tulemuste jaoks!"
+  },
+  "timeoutError": {
+    "message": "Vabandust, sinu kokkuvõtte taotlus aegus. See võib juhtuda võrgu viivituste või kõrge teenuse nõudluse tõttu. Palun proovi oma taotlust hiljem uuesti esitada."
+  },
+  "chatGPTwelcome": {
+    "message": "ChatGPT liides (vaikimisi)"
+  },
+  "chatGPTperks": {
+    "message": "tasuta ja aeglane"
+  },
+  "OpenAIwelcome": {
+    "message": "OpenAI API võti"
+  },
+  "OpenAIperks": {
+    "message": "soovitatav, kiire (hangi oma API võti siin"
+  },
+  "DeepSeekAPIwelcome": {
+    "message": "DeepSeek API võti"
+  },
+  "DeepSeekAPIperks": {
+    "message": "hangi oma API võti siin"
+  },
+  "DeepSeekChatWelcome": {
+    "message": "DeepSeek vestlusliides"
+  },
+  "DeepSeekChatPerks": {
+    "message": "tasuta ja aeglane"
+  },
+  "here": {
+    "message": "siin"
+  },
+  "missingYoutubeTranscription": {
+    "message": "YouTube videos puudub transkriptsioon, seetõttu kasutati selle kokkuvõtte andmiseks lehe sisu"
+  },
+  "languageHint": {
+    "message": "Keel",
+    "description": "Hint text shown when language selector is not available"
+  },
+  "languageNotAvailable": {
+    "message": "Lisage {{SELECTED_LANGUAGE}} kutsesse lubamiseks",
+    "description": "Tooltip explaining why language selector is disabled"
+  },
+  "updateSuccess": {
+    "message": "Update Successful! 🎉"
+  },
+  "whatsNew": {
+    "message": "What's new?"
+  },
+  "updatePoint1": {
+    "message": "Improved performance and stability when summarizing long texts."
+  },
+  "updatePoint2": {
+    "message": "Support for the latest AI models."
+  },
+  "updatePoint3": {
+    "message": "General bug fixes and UI adjustments."
+  },
+  "safeAiUpload": {
+    "message": "Secure AI Upload"
+  },
+  "redactifyTitle": {
+    "message": "Redact documents before summarizing"
+  },
+  "redactifyDesc": {
+    "message": "Do not upload sensitive data to ChatGPT! Redactify automatically makes PDFs and images safe for AI usage."
+  },
+  "redactifyPoint1": {
+    "message": "100% Offline & Local on Mac"
+  },
+  "redactifyPoint2": {
+    "message": "Detects IBANs, names, emails & addresses"
+  },
+  "downloadMacAppStore": {
+    "message": "Download on the Mac App Store"
+  },
+  "downloadIOSAppStore": {
+    "message": "Download for iPhone/iPad"
+  },
+  "appActionTitle": {
+    "message": "Sumyst - summarize this page"
+  }
+}

@@ -1,0 +1,7 @@
+*.xcodeproj/
+Native/Generated/
+DerivedData/
+build/
+*.xcarchive/
+*.ipa
+*.dmg

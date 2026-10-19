@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const marker = '\n// BEGIN BATCH MENU MODULE\n';
+const workerPath = path.join(root, 'background/index.js');
+let worker = fs.readFileSync(workerPath, 'utf8');
+if (worker.includes(marker)) worker = worker.slice(0, worker.indexOf(marker));
+const moduleSource = fs.readFileSync(path.join(root, 'background/batch-module.js'), 'utf8');
+worker = worker.trimEnd() + marker + moduleSource;
+fs.writeFileSync(workerPath, worker);
+const safari = path.join(root, 'SafariPort/SummarizeSafariExtension/Resources');
+fs.writeFileSync(path.join(safari, 'background/index.js'), worker);
+fs.writeFileSync(path.join(safari, 'background/batch-module.js'), moduleSource);

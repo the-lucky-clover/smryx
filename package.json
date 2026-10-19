@@ -1,0 +1,15 @@
+{
+  "name": "sumyst",
+  "version": "1.9.9",
+  "private": true,
+  "description": "Webpage summaries, questions and batch sessions powered by your signed-in ChatGPT session.",
+  "engines": {"node": ">=22.0.0"},
+  "scripts": {
+    "test": "node scripts/run-unit-tests.cjs",
+    "test:popup": "node tests/extension-summary.cjs",
+    "test:batch": "node tests/batch-workspace.cjs",
+    "test:safari-mobile": "node tests/apple-safari-mobile.cjs",
+    "build:safari": "node scripts/build-apple-safari.cjs"
+  },
+  "devDependencies": {"playwright": "1.57.0"}
+}

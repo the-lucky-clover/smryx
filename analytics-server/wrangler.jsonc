@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "beast-mode-analytics",
+  "account_id": "1e2b404d6e166b3e5e3f54461b9c761b",
+  "main": "worker.mjs",
+  "compatibility_date": "2025-12-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {"enabled": false},
+  "vars": {
+    "GA_MEASUREMENT_ID": "G-WV65497MC0",
+    "ALLOWED_EXTENSION_ORIGINS": "chrome-extension://onjmcmgcffeimccdjjolinhhhjigmmdi"
+  },
+  "ratelimits": [{"name": "EVENT_RATE_LIMITER", "namespace_id": "36173641", "simple": {"limit": 60, "period": 60}}]
+}

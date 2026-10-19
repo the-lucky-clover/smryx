@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Batch Summaries · Sumyst</title>
+  <link rel="stylesheet" href="batch-results.css">
+<link rel="stylesheet" href="../safari/mobile.css">
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-5 5 5-5 5 5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 8v5m0 4h.01M10 3 2 19h20L14 3Z"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14M10 3H3v18h18v-7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+  </defs></svg>
+
+  <aside class="sidebar">
+    <a class="brand" href="batch-results.html" aria-label="Sumyst home"><span class="brand-logo" aria-hidden="true">🤖</span><span>Sumyst<span class="brand-subtitle">SUMMARIES</span></span></a>
+    <div class="sidebar-label">YOUR WORKSPACE</div>
+    <div class="workspace-link"><svg><use href="#i-grid"/></svg><span>Batch summaries</span></div>
+    <div class="sidebar-rule"></div>
+    <div class="sidebar-label">LIBRARY</div>
+    <nav class="library-nav" aria-label="Filter summaries">
+      <button class="nav-filter active" data-filter="all" aria-pressed="true"><span>All pages</span><span data-count="all">0</span></button>
+      <button class="nav-filter" data-filter="complete" aria-pressed="false"><span><i class="dot green"></i>Ready to read</span><span data-count="complete">0</span></button>
+      <button class="nav-filter" data-filter="unfinished" aria-pressed="false"><span><i class="dot amber"></i>Unfinished</span><span data-count="unfinished">0</span></button>
+      <button class="nav-filter" data-filter="error" aria-pressed="false"><span><i class="dot red"></i>Needs attention</span><span data-count="error">0</span></button>
+    </nav>
+    <div class="sidebar-note"><span class="note-icon">↗</span><strong>Pick up where you left off.</strong><p>Export a session to keep your summaries and resume unfinished pages later.</p></div>
+    <div class="sidebar-footer"><i class="dot green"></i><span>ChatGPT interface<span class="footer-subtitle">Your session. Your workspace.</span></span><button id="theme-toggle" class="icon-button" aria-label="Toggle light or dark mode" title="Toggle light or dark mode"><svg><use href="#i-sun"/></svg></button></div>
+  </aside>
+
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Batch summaries</strong></div><button id="settings" class="text-button">Settings <span aria-hidden="true">↗</span></button></header>
+    <main>
+      <section class="page-heading"><div><p class="eyebrow">LESS TAB HOPPING. MORE CLARITY.</p><h1>Batch summaries<span class="heading-dot">.</span></h1><p class="description">A little less browsing. A lot more understanding.</p></div><button id="new-batch" class="button primary"><svg><use href="#i-plus"/></svg>New batch</button></section>
+      <section class="metrics" aria-label="Summary totals">
+        <article class="metric"><div class="metric-top">Pages in your library<svg><use href="#i-grid"/></svg></div><strong id="total-count">0</strong><span>Collected in this workspace</span></article>
+        <article class="metric"><div class="metric-top">Ready to read<svg class="green-text"><use href="#i-check"/></svg></div><strong id="success-count">0</strong><span>Two paragraphs. The essentials.</span></article>
+        <article class="metric"><div class="metric-top">Unfinished<svg class="amber-text"><use href="#i-clock"/></svg></div><strong id="pending-count">0</strong><span>Ready when you are</span></article>
+        <article class="metric"><div class="metric-top">Needs attention<svg class="red-text"><use href="#i-alert"/></svg></div><strong id="error-count">0</strong><span>Retry any page individually</span></article>
+      </section>
+
+      <section id="run-status" class="run-status" hidden aria-live="polite"><div class="run-orb"></div><div class="run-copy"><strong id="run-title">Summarizing your pages</strong><p id="run-note">Keep this tab open while your batch is running. Progress saves automatically.</p></div><button id="stop-batch" class="button small">Pause batch</button></section>
+
+      <section class="library" aria-label="Summary library">
+        <div class="library-heading"><div><h2>Your pages <span id="visible-count" class="count-pill">0</span></h2><p id="library-subtitle">Every page, distilled into what matters.</p></div><div class="library-actions">
+          <button id="resume-batch" class="button small" hidden><svg><use href="#i-arrow"/></svg>Resume unfinished</button>
+          <button id="import-session" class="button small"><svg><use href="#i-upload"/></svg>Import session</button>
+          <div class="export-control"><button id="export-menu-button" class="button small" aria-expanded="false" aria-controls="export-menu"><svg><use href="#i-download"/></svg>Export <span aria-hidden="true">⌄</span></button><div id="export-menu" class="export-menu" hidden><button id="export-session">Save session <small>JSON · includes unfinished pages and images</small></button><button id="export-csv">Export spreadsheet <small>CSV · titles, links, and complete summaries</small></button></div></div>
+          <button id="clear-all" class="button small danger" aria-label="Clear all results" title="Clear all results"><svg><use href="#i-trash"/></svg>Clear all</button>
+        </div></div>
+        <div class="table-toolbar"><label class="search"><svg><use href="#i-search"/></svg><input id="search" type="search" placeholder="Search titles, sites, or summaries" aria-label="Search summaries"><kbd>Ctrl K</kbd></label><label class="sort-label">Sort by<select id="sort" aria-label="Sort summaries"><option value="batch">Batch order</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">Title, A–Z</option><option value="usage">Most read</option></select></label></div>
+        <div class="table-scroll"><table id="results-table"><caption class="sr-only">Site previews and two-paragraph TL;DR summaries</caption><thead><tr><th scope="col">PAGE PREVIEW</th><th scope="col">THE TL;DR <span>Two paragraphs. One clear picture.</span></th></tr></thead><tbody id="results-body"></tbody></table></div>
+        <div id="empty-state" class="empty-state"><div class="empty-art"><svg><use href="#i-grid"/></svg><span>✦</span></div><p class="eyebrow">ROOM FOR YOUR NEXT DISCOVERY</p><h2>Your tabs have a story.<br>Let’s make it a short one.</h2><p>Choose a few open pages. We’ll turn each one into<br>a preview and two easy-to-read paragraphs.</p><button id="empty-new-batch" class="button primary"><svg><use href="#i-plus"/></svg>Create your first batch</button><button id="empty-import" class="text-button">Or import a saved session <span aria-hidden="true">↗</span></button></div>
+        <div id="no-matches" class="no-matches" hidden><h3>No matching pages</h3><p>Try a different search or library filter.</p><button id="reset-filters" class="text-button">Show all pages</button></div>
+        <footer class="library-footer"><span id="table-count">0 pages</span><span><i class="dot green"></i>Saved on this device</span></footer>
+      </section>
+      <footer class="page-footer"><span>MADE FOR CURIOUS MINDS.</span><span>Sumyst <span aria-hidden="true">✦</span></span></footer>
+    </main>
+  </div>
+
+  <dialog id="new-dialog" class="dialog new-dialog" aria-labelledby="new-title"><form id="new-form"><div class="dialog-heading"><div><p class="eyebrow">A FRESH PERSPECTIVE</p><h2 id="new-title">Start a new batch</h2></div><button class="icon-button" type="button" data-close="new-dialog" aria-label="Close new batch"><svg><use href="#i-close"/></svg></button></div><p class="dialog-description">Choose the pages you want to understand. Pages are summarized in their tab order.</p><div class="batch-options"><label>Source<select id="window-scope"><option value="current">This window</option><option value="all">All windows</option></select></label><label>Page images<select id="capture-mode"><option value="preview">Site preview images</option><option value="screenshot">Background screenshots</option></select></label></div><p id="capture-help" class="field-help">Uses the page’s cover image when available. No tabs are activated.</p><label class="close-after-control"><input id="close-source-tabs" type="checkbox" disabled>Close source tabs after successful summaries <span>Global · off by default</span></label><div class="selection-heading"><label><input id="select-all-tabs" type="checkbox" checked> Select all pages</label><span id="selected-count">0 selected</span></div><div id="tab-selection" class="tab-selection"></div><p class="field-help">Browser and extension pages are excluded. Sleeping tabs must be opened first.</p><div class="dialog-footer"><button class="button" type="button" data-close="new-dialog">Cancel</button><button id="start-batch" class="button primary" type="submit">Summarize pages <svg><use href="#i-arrow"/></svg></button></div></form></dialog>
+  <dialog id="clear-dialog" class="dialog clear-dialog" aria-labelledby="clear-title"><div class="confirm-icon"><svg><use href="#i-trash"/></svg></div><h2 id="clear-title">Clear your library?</h2><p id="clear-description">All saved batch results will be removed from this device. Export a session first if you’d like to keep a copy.</p><div class="dialog-footer"><button class="button" data-close="clear-dialog">Keep results</button><button id="confirm-clear" class="button destructive">Clear all results</button></div></dialog>
+  <dialog id="reader" class="reader" aria-labelledby="reader-title"><div class="reader-toolbar"><span class="eyebrow">THE FULL PICTURE</span><button class="icon-button" data-close="reader" aria-label="Close summary"><svg><use href="#i-close"/></svg></button></div><div class="reader-scroll"><a id="reader-source" target="_blank" rel="noopener noreferrer"></a><h2 id="reader-title"></h2><div id="reader-body" class="summary-prose"></div></div><div class="reader-footer"><button id="reader-copy" class="button"><svg><use href="#i-copy"/></svg>Copy summary</button><a id="reader-original" class="button primary" target="_blank" rel="noopener noreferrer">Open page <svg><use href="#i-external"/></svg></a></div></dialog>
+  <input id="import-file" type="file" accept=".json,application/json" hidden>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="batch-results.js"></script>
+</body>
+</html>

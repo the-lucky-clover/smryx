@@ -1,0 +1,9 @@
+{
+  "sourceVersion": "1.9.9",
+  "sourceWorkerSHA256": "052df1a164826e0255b16d0e9b02e568a5355a3ec0e171cec1d2f3a8eb97db46",
+  "platforms": [
+    "macOS 14+",
+    "iOS/iPadOS 17+"
+  ],
+  "nativeSafariTested": false
+}

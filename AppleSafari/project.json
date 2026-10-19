@@ -1,0 +1,241 @@
+{
+  "name": "SumystSafari",
+  "options": {
+    "createIntermediateGroups": true
+  },
+  "settings": {
+    "base": {
+      "SWIFT_VERSION": "5.0",
+      "MARKETING_VERSION": "1.9.9",
+      "CURRENT_PROJECT_VERSION": "1",
+      "CODE_SIGN_STYLE": "Automatic",
+      "DEVELOPMENT_TEAM": ""
+    }
+  },
+  "targets": {
+    "BeastModeMac": {
+      "type": "application",
+      "platform": "macOS",
+      "deploymentTarget": "14.0",
+      "sources": [
+        "Native/App"
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.mac",
+          "CODE_SIGN_ENTITLEMENTS": "Native/macOS.entitlements",
+          "PRODUCT_NAME": "Sumyst"
+        }
+      },
+      "info": {
+        "path": "Native/Generated/chatgptbeastmode-mac-Info.plist",
+        "properties": {
+          "CFBundleDisplayName": "Sumyst",
+          "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+          "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
+          "LSApplicationCategoryType": "public.app-category.productivity"
+        }
+      },
+      "dependencies": [
+        {
+          "target": "BeastModeMacExtension",
+          "embed": true
+        }
+      ]
+    },
+    "BeastModeMacExtension": {
+      "type": "app-extension",
+      "platform": "macOS",
+      "deploymentTarget": "14.0",
+      "sources": [
+        "Native/WebExtension",
+        "Native/Shared"
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.mac.extension",
+          "CODE_SIGN_ENTITLEMENTS": "Native/macOS.entitlements",
+          "APPLICATION_EXTENSION_API_ONLY": "YES",
+          "SKIP_INSTALL": "YES",
+          "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+          "PRODUCT_NAME": "SumystSafariExtension"
+        }
+      },
+      "info": {
+        "path": "Native/Generated/mac-extension-Info.plist",
+        "properties": {
+          "CFBundleDisplayName": "Sumyst",
+          "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+          "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
+          "BeastModeAppGroup": "group.com.luckyclover.chatgptbeastmode",
+          "NSExtension": {
+            "NSExtensionPointIdentifier": "com.apple.Safari.web-extension",
+            "NSExtensionPrincipalClass": "$(PRODUCT_MODULE_NAME).SafariWebExtensionHandler"
+          }
+        }
+      },
+      "postBuildScripts": [
+        {
+          "name": "Copy current WebExtension resources",
+          "script": "set -eu\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nditto \"${SRCROOT}/WebExtension\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"",
+          "basedOnDependencyAnalysis": false,
+          "showEnvVars": false
+        }
+      ]
+    },
+    "BeastModeIOS": {
+      "type": "application",
+      "platform": "iOS",
+      "deploymentTarget": "17.0",
+      "sources": [
+        "Native/App"
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.ios",
+          "CODE_SIGN_ENTITLEMENTS": "Native/iOS.entitlements",
+          "TARGETED_DEVICE_FAMILY": "1,2",
+          "PRODUCT_NAME": "Sumyst"
+        }
+      },
+      "info": {
+        "path": "Native/Generated/chatgptbeastmode-ios-Info.plist",
+        "properties": {
+          "CFBundleDisplayName": "Sumyst",
+          "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+          "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
+          "UILaunchScreen": {},
+          "UISupportedInterfaceOrientations": [
+            "UIInterfaceOrientationPortrait",
+            "UIInterfaceOrientationLandscapeLeft",
+            "UIInterfaceOrientationLandscapeRight"
+          ],
+          "UISupportedInterfaceOrientations~ipad": [
+            "UIInterfaceOrientationPortrait",
+            "UIInterfaceOrientationPortraitUpsideDown",
+            "UIInterfaceOrientationLandscapeLeft",
+            "UIInterfaceOrientationLandscapeRight"
+          ]
+        }
+      },
+      "dependencies": [
+        {
+          "target": "BeastModeIOSExtension",
+          "embed": true
+        },
+        {
+          "target": "BeastModeIOSShare",
+          "embed": true
+        }
+      ]
+    },
+    "BeastModeIOSExtension": {
+      "type": "app-extension",
+      "platform": "iOS",
+      "deploymentTarget": "17.0",
+      "sources": [
+        "Native/WebExtension",
+        "Native/Shared"
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.ios.extension",
+          "CODE_SIGN_ENTITLEMENTS": "Native/iOS.entitlements",
+          "TARGETED_DEVICE_FAMILY": "1,2",
+          "APPLICATION_EXTENSION_API_ONLY": "YES",
+          "SKIP_INSTALL": "YES",
+          "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
+          "PRODUCT_NAME": "SumystSafariExtension"
+        }
+      },
+      "info": {
+        "path": "Native/Generated/ios-extension-Info.plist",
+        "properties": {
+          "CFBundleDisplayName": "Sumyst",
+          "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+          "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
+          "BeastModeAppGroup": "group.com.luckyclover.chatgptbeastmode",
+          "NSExtension": {
+            "NSExtensionPointIdentifier": "com.apple.Safari.web-extension",
+            "NSExtensionPrincipalClass": "$(PRODUCT_MODULE_NAME).SafariWebExtensionHandler"
+          }
+        }
+      },
+      "postBuildScripts": [
+        {
+          "name": "Copy current WebExtension resources",
+          "script": "set -eu\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\nditto \"${SRCROOT}/WebExtension\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"",
+          "basedOnDependencyAnalysis": false,
+          "showEnvVars": false
+        }
+      ]
+    },
+    "BeastModeIOSShare": {
+      "type": "app-extension",
+      "platform": "iOS",
+      "deploymentTarget": "17.0",
+      "sources": [
+        "Native/Shared",
+        {
+          "path": "Native/Share/ShareViewController.swift"
+        },
+        {
+          "path": "Native/Share/SharePreprocessor.js",
+          "buildPhase": "resources"
+        }
+      ],
+      "settings": {
+        "base": {
+          "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.ios.share",
+          "CODE_SIGN_ENTITLEMENTS": "Native/iOS.entitlements",
+          "TARGETED_DEVICE_FAMILY": "1,2",
+          "APPLICATION_EXTENSION_API_ONLY": "YES",
+          "SKIP_INSTALL": "YES",
+          "PRODUCT_NAME": "SumystShare"
+        }
+      },
+      "info": {
+        "path": "Native/Generated/ios-share-Info.plist",
+        "properties": {
+          "CFBundleDisplayName": "Sumyst",
+          "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+          "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
+          "BeastModeAppGroup": "group.com.luckyclover.chatgptbeastmode",
+          "NSExtension": {
+            "NSExtensionPointIdentifier": "com.apple.share-services",
+            "NSExtensionPrincipalClass": "$(PRODUCT_MODULE_NAME).ShareViewController",
+            "NSExtensionAttributes": {
+              "NSExtensionJavaScriptPreprocessingFile": "SharePreprocessor",
+              "NSExtensionActivationRule": {
+                "NSExtensionActivationSupportsWebURLWithMaxCount": 1,
+                "NSExtensionActivationSupportsWebPageWithMaxCount": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "schemes": {
+    "Sumyst macOS": {
+      "build": {
+        "targets": {
+          "BeastModeMac": "all"
+        }
+      },
+      "run": {
+        "config": "Debug"
+      }
+    },
+    "Sumyst iOS": {
+      "build": {
+        "targets": {
+          "BeastModeIOS": "all"
+        }
+      },
+      "run": {
+        "config": "Debug"
+      }
+    }
+  }
+}

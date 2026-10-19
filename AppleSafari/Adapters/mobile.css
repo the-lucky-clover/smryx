@@ -1,0 +1,35 @@
+/* Apple copy: start with a narrow, portrait layout; expand only when it fits. */
+html,body{min-width:0;max-width:100%;-webkit-text-size-adjust:100%}
+.bm-safari-native-popup body{width:420px;max-width:100vw;height:640px}
+.popup-container{border-radius:12px}
+.popup-header{padding:10px max(12px,env(safe-area-inset-right)) 10px max(12px,env(safe-area-inset-left))}
+.popup-main{padding-bottom:env(safe-area-inset-bottom)}
+.popup-main,.popup-main .prose{font-family:var(--font-sans,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif)}
+.popup-main #gpt-answer{font-size:1rem;line-height:1.7}
+.popup-main :is(h1,h2,h3){font-family:var(--font-sans)}
+.popup-header .header-content{gap:6px;flex-direction:column;align-items:stretch}
+.popup-header .header-wordmark{min-width:0;gap:10px}
+.popup-header .header-actions{margin-left:auto;max-width:100%;gap:6px}
+.popup-header .icon-btn{min-width:44px;min-height:44px}
+.popup-header .header-title{font-size:1.1rem;line-height:1.35}
+.popup-header .text-size-control{position:static}
+.popup-header .popover{right:0;top:calc(100% + 8px);width:min(240px,calc(100vw - 32px));max-width:calc(100vw - 32px)}
+button,input,select,textarea{touch-action:manipulation}
+input,select,textarea{font-size:max(16px,1rem)}
+.bm-app,.bm-workspace,.bm-content-scroll{min-width:0}
+#app .sticky{flex-wrap:wrap;gap:4px;padding:0 12px 4px}
+#app [role="tablist"]{flex:1 1 240px;min-width:0;flex-wrap:wrap;padding-inline:0;column-gap:12px}
+#app [role="tablist"]>:not([hidden])~:not([hidden]){margin-inline:0}
+#app [role="tab"]{min-height:44px;padding-block:10px;white-space:normal;line-height:1.35;text-align:left}
+.bm-content-scroll{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+#app pre{max-width:100%;overflow-x:auto}
+@media(min-width:600px){
+  .popup-header .header-content{flex-direction:row;align-items:center;gap:12px}
+  .popup-header{padding:12px 16px}
+}
+@media(max-width:599px){.bm-safari-native-popup body{width:100vw;height:100dvh}}
+@media(orientation:landscape) and (max-height:500px){
+  .popup-header .header-content{flex-direction:row;align-items:center;gap:6px;flex-wrap:wrap}
+  .popup-header{padding-block:6px}
+  .popup-header .header-title{font-size:1rem}
+}
