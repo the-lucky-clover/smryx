@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="prompt-settings.css" />
     <link rel="stylesheet" href="batch-settings.css" />
     <link rel="stylesheet" href="analytics-settings.css" />
+    <link rel="stylesheet" href="popup-design.css" />
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-[#333440] dark:text-gray-50">
     <div id="app"></div>
@@ -28,11 +29,22 @@
       <button id="analytics-check" type="button">Check connection</button>
     </section>
 
+    <section id="bm-popup-design" aria-label="Popup design">
+      <h2>Popup design</h2>
+      <p>Choose a layout for the summary popup. Both designs support light, dark, your color palettes, text size, summaries, and questions.</p>
+      <fieldset id="popup-design-choices" disabled>
+        <legend>Choose your console</legend>
+        <label class="popup-design-card"><input type="radio" name="popup-design" value="classic" checked><b>Classic · default</b><div class="popup-design-preview" aria-hidden="true"></div><small>The original clean layout, with controls in the top bar.</small></label>
+        <label class="popup-design-card"><input type="radio" name="popup-design" value="city-console"><b>City Console</b><div class="popup-design-preview city" aria-hidden="true"><i></i><i></i><i></i></div><small>A playful 1950s reading console: molded Bakelite, a recessed screen, brass trim, and red tactile controls.</small></label>
+      </fieldset>
+      <p id="popup-design-status" role="status" aria-live="polite"></p>
+    </section>
     <section id="bm-theme-studio" aria-label="Custom color themes"></section>
 
     <script src="theme-studio.js" type="module"></script>
     <script src="index.js" type="module"></script>
     <script src="batch-settings.js" type="module"></script>
     <script src="analytics-settings.js" type="module"></script>
+    <script src="popup-design.js" type="module"></script>
   </body>
 </html>

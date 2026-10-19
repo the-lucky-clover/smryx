@@ -12,7 +12,8 @@
     "test:batch": "node tests/batch-workspace.cjs",
     "test:safari-mobile": "node tests/apple-safari-mobile.cjs",
     "build:safari": "node scripts/build-apple-safari.cjs",
-    "test:presentation": "node tests/presentation.cjs"
+    "test:presentation": "node tests/presentation.cjs",
+    "test:popup-layout": "node tests/retro-popup.cjs"
   },
   "devDependencies": {
     "playwright": "1.57.0"
