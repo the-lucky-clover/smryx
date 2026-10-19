@@ -1,0 +1,12 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const css = fs.readFileSync(path.join(root, 'shared/glass-button.css'), 'utf8');
+const target = path.join(root, 'content-script/index.js');
+let source = fs.readFileSync(target, 'utf8');
+const start = source.indexOf('s.textContent=`', source.indexOf('var $=(()=>'));
+const end = source.indexOf('`,t.appendChild(s)', start);
+if (start < 0 || end < 0) throw Error('Selection button stylesheet boundary changed.');
+source = source.slice(0, start) + 's.textContent=`' + css + source.slice(end);
+fs.writeFileSync(target, source);
+fs.writeFileSync(path.join(root, 'styles.css'), css);

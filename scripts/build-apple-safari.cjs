@@ -11,7 +11,7 @@ manifest.permissions = manifest.permissions.filter(value => value !== "webReques
 manifest.permissions.push("nativeMessaging");
 delete manifest.optional_permissions;
 delete manifest.optional_host_permissions;
-manifest.background = {scripts: ["safari/background-compat.js", "shared/remove-legacy-analytics.js", "shared/analytics-config.js", "shared/analytics-schema.js", "background/analytics.js", "background/index.js", "safari/share-background.js"], persistent: false};
+manifest.background = {scripts: ["safari/background-compat.js", "shared/remove-legacy-analytics.js", "shared/analytics-config.js", "shared/analytics-schema.js", "background/analytics.js", "background/full-text.js", "background/index.js", "safari/share-background.js"], persistent: false};
 manifest.action.default_popup = "popup/index.html";
 manifest.content_scripts[0].js.push("safari/share-content.js");
 manifest.content_scripts[0].js.push("safari/mobile-viewport.js");

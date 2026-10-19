@@ -33,6 +33,7 @@
       "shared/analytics-config.js",
       "shared/analytics-schema.js",
       "background/analytics.js",
+      "background/full-text.js",
       "background/index.js",
       "safari/share-background.js"
     ],

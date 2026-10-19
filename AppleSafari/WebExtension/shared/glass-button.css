@@ -1,0 +1,87 @@
+/* One surface language for the video and selection actions. */
+#gpt-youtube-summarize-button,
+#gpt-beast-mode-button {
+  --sumyst-jade: #086454;
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 9px 17px;
+  border: 1px solid rgba(222, 255, 244, .44);
+  border-radius: 16px;
+  background: linear-gradient(160deg, #338a77e8 0%, #125d53f5 46%, #092f36f5 100%);
+  color: #f0fff9;
+  font: 600 13px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .015em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(18px) saturate(155%);
+  -webkit-backdrop-filter: blur(18px) saturate(155%);
+  box-shadow: inset 0 1px 0 #ffffff8a, inset 0 -2px 3px #001c2b80,
+    0 2px 2px #001d2466, 0 7px 18px #032e3738, 0 0 0 1px #002f3a26;
+  text-shadow: 0 1px 2px #002c37;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+#gpt-youtube-summarize-button { margin: 0 8px; vertical-align: middle; flex-shrink: 0; }
+#gpt-beast-mode-button {
+  display: none;
+  position: absolute;
+  z-index: 2147483645;
+  max-width: calc(100vw - 24px);
+  border-radius: 18px;
+  background: linear-gradient(155deg, #795aabea, #493976f5 48%, #202840f5);
+  box-shadow: inset 0 1px 0 #ffffff91, inset 0 -2px 4px #100b3a99,
+    0 3px 3px #16112a33, 0 12px 28px #21174047, 0 0 0 1px #c9aaff24;
+}
+#gpt-youtube-summarize-button::before,
+#gpt-beast-mode-button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -70%;
+  background: conic-gradient(from 40deg, transparent 0 12%, #6af6c145 24%,
+    #82b9ff24 38%, transparent 50%, #b492f947 65%, #e8b8e62b 78%, transparent 90%);
+  filter: blur(14px);
+  animation: sumyst-liquid-light 16s linear infinite;
+  pointer-events: none;
+}
+#gpt-youtube-summarize-button::after,
+#gpt-beast-mode-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(175deg, #ffffff24, #ffffff06 43%, transparent 44%),
+    linear-gradient(110deg, transparent 20%, #ffffff08 38%, transparent 55%);
+  pointer-events: none;
+}
+.sumyst-button-symbol {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border-radius: 8px;
+  color: #effffb;
+  background: linear-gradient(145deg, #ffffff38, #ffffff0a);
+  box-shadow: inset 0 1px 0 #ffffff55, 0 2px 5px #071f3d40;
+}
+.sumyst-button-symbol svg { width: 18px; height: 18px; display: block; }
+#gpt-youtube-summarize-button:hover,
+#gpt-beast-mode-button:hover { transform: translateY(-1px); border-color: #e1fff2b3; box-shadow: inset 0 1px 0 #ffffff99, 0 6px 20px #18474459, 0 0 16px #8ccfce20; }
+#gpt-youtube-summarize-button:active,
+#gpt-beast-mode-button:active { transform: translateY(1px) scale(.985); }
+#gpt-youtube-summarize-button:focus-visible,
+#gpt-beast-mode-button:focus-visible { outline: 3px solid #a9d9ff; outline-offset: 3px; }
+@keyframes sumyst-liquid-light { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  #gpt-youtube-summarize-button::before, #gpt-beast-mode-button::before { animation: none; }
+  #gpt-youtube-summarize-button, #gpt-beast-mode-button { transition: none; }
+}

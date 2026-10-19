@@ -2,6 +2,8 @@
 
 Sumyst summarizes webpages, YouTube videos and PDFs using your signed-in ChatGPT session. Ask follow-up questions, or collect pages into a batch workspace with previews, saved results and portable sessions.
 
+[Visit the Sumyst website](https://the-lucky-clover.github.io/sumyst/). The static site lives in `docs/` and publishes through `.github/workflows/pages.yml`. Onboarding uses current product screenshots instead of a video. Video and selected-text actions share the jade/violet glass surface in `shared/glass-button.css`; run `node scripts/sync-glass-button.cjs` after editing that stylesheet.
+
 ## Install in Chrome or Chromium
 
 1. Download/clone this repository.
@@ -10,6 +12,8 @@ Sumyst summarizes webpages, YouTube videos and PDFs using your signed-in ChatGPT
 4. Sign in to [ChatGPT](https://chatgpt.com/) in the same browser, then open a webpage and click Sumyst.
 
 The extension uses ChatGPT's web interface with automatic routing. It does not require an API key or a model selection. ChatGPT session availability and service changes can affect requests.
+
+Long sources are processed automatically in complete sections, then combined into one summary using your prompt and selected language. Progress shows which section is being read. This covers the extracted article, available transcript, or imported text; content that the page has not loaded or made accessible is unavailable. Long sources require multiple ChatGPT requests.
 
 ## Batch workspace
 

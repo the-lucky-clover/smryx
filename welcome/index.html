@@ -1,10 +1,31 @@
-<html>
-  <head>
-    <title>Sumyst</title>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body class="bg-gray-50 text-gray-900 dark:bg-[#333440] dark:text-gray-50">
-    <div id="app" class="h-full"></div>
-    <script src="index.js" type="module"></script>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Welcome to Sumyst</title>
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+  <header><a class="brand" href="#"><span class="brand-gem" aria-hidden="true">✦</span>Sumyst</a><span class="header-note">A little clarity goes a long way.</span></header>
+  <main>
+    <nav class="steps" aria-label="Setup progress"><span data-step="1" aria-current="step">01 <b>Make it yours</b></span><span data-step="2">02 <b>Connect ChatGPT</b></span><span data-step="3">03 <b>Find your flow</b></span></nav>
+    <section id="step-1" class="setup-panel">
+      <div class="copy"><p class="eyebrow">WELCOME TO A CLEARER BROWSER</p><h1>Keep the insight.<br>Skip the scroll.</h1><p class="lede">Turn a long page into something you can use. Sumyst brings summaries, follow-up questions, and a whole reading queue into one place.</p>
+        <ol class="instructions"><li><b>Keep Sumyst close.</b><span>In Chrome, open the Extensions puzzle menu and pin Sumyst. In Safari, enable Sumyst under Safari → Extensions.</span></li><li><b>Open something worth reading.</b><span>A webpage, a PDF, or a YouTube video with captions.</span></li><li><b>Generate Summary.</b><span>Click the extension icon, the video button, or select a passage and use the floating glass button.</span></li></ol>
+        <div class="actions"><button class="primary" data-next>Let’s get started <span aria-hidden="true">↗</span></button><button class="quiet" data-next>Skip →</button></div>
+      </div><figure class="product-shot"><img src="assets/summary.png" alt="Sumyst’s actual summary panel with two TL;DR paragraphs and follow-up tabs" width="520" height="700"><figcaption>Actual extension · sample article and controlled example response</figcaption></figure>
+    </section>
+    <section id="step-2" class="setup-panel" hidden>
+      <div class="copy"><p class="eyebrow">ONE FAMILIAR CONNECTION</p><h1>Your ChatGPT.<br>Now in context.</h1><p class="lede">Use your signed-in ChatGPT session to summarize pages and ask questions. Continue to connect ChatGPT.</p><div class="connection"><span class="connection-icon" aria-hidden="true">✦</span><div><b>ChatGPT interface</b><p>Automatic model routing. No API key to configure.</p></div></div><ol class="instructions"><li><b>Sign in to ChatGPT.</b><span>Open ChatGPT in this browser and make sure a regular conversation works.</span></li><li><b>Return to your page.</b><span>Sumyst uses that session. ChatGPT’s usage limits and service availability still apply.</span></li></ol><div class="actions"><a class="primary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a><button class="secondary" data-next>Next →</button><button class="quiet" data-back>← Back</button></div></div>
+      <figure class="product-shot wide"><img src="assets/batch.png" alt="Sumyst batch workspace with source links and saved summaries" width="1440" height="1000"><figcaption>Your reading list, together. Actual workspace with sample pages.</figcaption></figure>
+    </section>
+    <section id="step-3" class="setup-panel" hidden>
+      <div class="copy"><p class="eyebrow">YOU’RE READY</p><h1>One page.<br>Or your whole queue.</h1><p class="lede">Start with a single summary, then ask a question when you want to go deeper. Long sources are read in sections and combined into one result.</p><div class="workflow"><b>For the page in front of you</b><p>Click Sumyst. Choose your language, read the TL;DR, and use Ask question for follow-ups.</p><b>For the tabs you’ll read later</b><p>Right-click the extension icon for Batch summaries. Keep source links, export your results, or import a session to continue later.</p><b>On iPhone or iPad</b><p>After installing the Safari build, use Share → Sumyst on a webpage. The Apple version requires a signed build.</p></div><div class="actions"><a class="primary" href="../options/index.html">Options</a><button class="secondary" id="open-batch">Open batch workspace ↗</button><button class="quiet" data-back>← Back</button></div><p id="setup-status" role="status"></p></div><figure class="product-shot"><img src="assets/summary.png" alt="Sumyst summary panel" width="520" height="700"><figcaption>Keep the source open. Let the summary do the sorting.</figcaption></figure>
+    </section>
+  </main>
+  <footer><label class="analytics-choice"><input id="usage-statistics" type="checkbox" checked><span><b>Usage statistics</b> Help improve Sumyst with feature-use counts. On by default; turn off anytime. Page text, URLs, summaries, and questions are excluded.</span></label><a href="../options/index.html">Extension settings ↗</a></footer>
+  <script src="index.js" type="module"></script>
+</body>
 </html>

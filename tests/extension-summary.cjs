@@ -7,7 +7,7 @@ const assert = require('node:assert/strict');
 (async () => {
   const root = path.resolve(__dirname, '..');
   const article = '<!doctype html><html lang="en"><head><title>Local summary verification</title></head><body><main><article><h1>Local summary verification</h1>' + '<p>The test system uses a blue sensor to measure water temperature. Install the sensor, connect its cable, and record the temperature every minute. The measured result is twenty degrees Celsius.</p>'.repeat(20) + '</article></main></body></html>';
-  const server = createServer((req, res) => {res.setHeader('Content-Type', 'text/html'); res.end(article);});
+  const server = createServer((req, res) => {res.setHeader('Content-Type', 'text/html; charset=utf-8'); res.end(req.url === "/reading-demo" ? article.replaceAll("Local summary verification", "The ocean’s hidden climate work").replaceAll("The test system uses a blue sensor to measure water temperature. Install the sensor, connect its cable, and record the temperature every minute. The measured result is twenty degrees Celsius.", "The ocean stores and moves heat, helping regulate Earth’s climate. Scientists combine satellites, research vessels, and autonomous floats to understand long-term changes in temperature and sea level.") : req.url === "/long-article" ? article.replace("</article>", "<p>" + "Full source coverage. ".repeat(1600) + "TAIL_EVIDENCE_927: the final section reverses the opening conclusion.</p></article>") : article);});
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   let context;
   try {
@@ -68,7 +68,7 @@ const assert = require('node:assert/strict');
           }
           await new Promise(resolve => setTimeout(resolve, isAnswer ? 250 : 1800));
           if (isAnswer && failNextAnswer) {failNextAnswer = false; return Response.json({error: {message: 'Controlled provider failure'}}, {status: 400});}
-          const content = isAnswer ? 'The blue sensor records water temperature. The result is twenty degrees Celsius.' :
+          const content = isAnswer ? 'The blue sensor records water temperature. The result is twenty degrees Celsius.' : globalThis.productCapture ? '1. **TL;DR Summary**\n\nThe ocean stores and moves heat, helping regulate Earth’s climate. It absorbs energy that would otherwise warm the atmosphere, but this comes with rising ocean temperatures and stress on marine ecosystems.\n\nLong-term observations reveal changes that a single surface measurement can miss. Combining satellite readings, research vessels, and autonomous floats gives scientists a clearer picture of the planet’s energy balance.\n\n2. **Key insights**\n\n- Ocean heat is a useful measure of long-term climate change.\n- Warmer water expands, contributing to rising sea levels.\n- Different observing tools reveal different parts of the picture.' :
             'Verified summary: <icon name="clapperboard" color="secondary" inline />\n\n<text color="secondary" weight="medium" size="xs">Unverified — Vehicle search page</text>\n\n1. **TL;DR Summary (3–15 sentences)**\n\nThe test system uses a **blue sensor** to measure water temperature. Install the sensor and connect its cable. Record the temperature every minute. The measured result is twenty degrees Celsius.\n\n2. **Bullet Summary**\n\n- Preserve [sensor documentation](https://example.com/sensor) and `sensor.read()`.';
           const payload = url.endsWith('/backend-api/conversation')
             ? {message: {id: 'browser-smoke', author: {role: 'assistant'}, content: {parts: [content]}}, conversation_id: 'browser-smoke'}
@@ -100,6 +100,7 @@ const assert = require('node:assert/strict');
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') console.log('CONSOLE', message.text().slice(0, 500)); });
     const url = `http://127.0.0.1:${server.address().port}/article`;
+    if (process.env.SUMYST_FULLTEXT_ONLY) {await verifyFullText();return;}
     await page.goto(url);
     await page.bringToFront();
     await worker.evaluate(async url => {
@@ -399,6 +400,32 @@ const assert = require('node:assert/strict');
     await page.locator('#chatgpt-summarize-popup').waitFor({state:'hidden'});
     console.log('PASS: single header, working Settings/Close, saved text-size setting, animated loading progress, and progress removal on completion.');
     console.log('PASS: header theme toggle changes real summary surfaces even after a custom palette; summary uses full width at two resized dimensions.');
+    await verifyFullText();
+    async function verifyFullText() {
+    const longStart = await worker.evaluate(async () => {await chrome.storage.session.clear();return summaryRequests.length;});
+    const longUrl = url.replace('/article', '/long-article');
+    await page.goto(longUrl);
+    await page.bringToFront();
+    await worker.evaluate(async url => {
+      const [tab] = await chrome.tabs.query({url});
+      await chrome.tabs.sendMessage(tab.id, {type:'OPEN_POPUP',to:'content-script'});
+    }, longUrl);
+    await page.frameLocator('#chatgpt-summarize-popup').locator('#gpt-answer').getByText('Verified summary:', {exact:false}).waitFor({timeout:45000});
+    const longRequests = await worker.evaluate(start => summaryRequests.slice(start).map(r => r.messages[0].content.parts[0]), longStart);
+    assert.ok(longRequests.length >= 4, 'long articles require every section plus synthesis');
+    assert.ok(longRequests.slice(0,-1).some(prompt => prompt.includes('TAIL_EVIDENCE_927')), 'final source section reaches the engine');
+    assert.ok(longRequests.at(-1).includes('notes cover every source section'), 'popup renders a final synthesis');
+    if (process.env.SUMYST_CAPTURE_ASSETS) {
+      await worker.evaluate(async () => {globalThis.productCapture=true;await chrome.storage.session.clear();});
+      const demoUrl = url.replace('/article','/reading-demo');
+      await page.goto(demoUrl);
+      await page.bringToFront();
+      await worker.evaluate(async url => {const [tab]=await chrome.tabs.query({url});await chrome.tabs.sendMessage(tab.id,{type:'OPEN_POPUP',to:'content-script'});},demoUrl);
+      await page.frameLocator('#chatgpt-summarize-popup').getByText('The ocean stores and moves heat,', {exact:false}).waitFor();
+      await page.locator('#chatgpt-summarize-popup').screenshot({path:path.join(root,'welcome/assets/summary.png')});
+    }
+    console.log('PASS: full-text popup processes the final section of a long article and synthesizes one summary automatically.');
+    }
     console.log('PASS: real unpacked extension extracts article text, sends the model request, renders the streamed summary, and fills the popup width. Provider response is controlled; no real API credentials used.');
   } finally {
     server.closeAllConnections();
