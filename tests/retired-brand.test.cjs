@@ -9,7 +9,7 @@ test('brand audit catches literal, joined, escaped, double-encoded and base64 st
   for(const form of forms)assert.ok(inspect(Buffer.from(form)),form);
   assert.ok(inspect(Buffer.from(retired,'utf16le')));
   assert.ok(inspect(Buffer.concat([Buffer.from([0xfe,0xff]),Buffer.from(retired,'utf16le').swap16()])));
-  assert.equal(inspect(Buffer.from('Sumyst uses https://chatgpt.com and keeps required third-party notices.')),null);
+  assert.equal(inspect(Buffer.from('SmryX uses https://chatgpt.com and keeps required third-party notices.')),null);
 });
 test('brand audit reads compressed ZIP entries and fails on unreadable archives',()=>{
   const content=Buffer.from(retired),compressed=require('node:zlib').deflateRawSync(content),name=Buffer.from('worker.js');

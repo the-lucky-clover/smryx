@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Sumyst",
+    "message": "SmryX",
     "description": "The name of the web-extension (45)"
   },
   "appDesc": {
-    "message": "Sumyst summarizes webpages, videos and PDFs, answers questions, and organizes batch results using your signed-in ChatGPT session.",
+    "message": "SmryX summarizes webpages, videos and PDFs, answers questions, and organizes batch results using your signed-in ChatGPT session.",
     "description": "The descirption of the web-extension (132)"
   },
   "defaultQuestion": {
@@ -27,7 +27,7 @@
     "message": "Por favor escolha seu Provedor para resumir"
   },
   "installSuccess": {
-    "message": "Pronto! Resuma qualquer página web ou vídeo do Youtube com um clique usando o Sumyst! Entre em contato conosco para qualquer <a>pergunta ou feedback</a>. Feliz resumo!",
+    "message": "Pronto! Resuma qualquer página web ou vídeo do Youtube com um clique usando o SmryX! Entre em contato conosco para qualquer <a>pergunta ou feedback</a>. Feliz resumo!",
     "description": "Success message after installing the extension"
   },
   "happySumarize": {

@@ -1,10 +1,12 @@
-# Sumyst
+# SmryX
 
-Sumyst summarizes webpages, YouTube videos and PDFs using your signed-in ChatGPT session. Ask follow-up questions, or collect pages into a batch workspace with previews, saved results and portable sessions.
+SmryX summarizes webpages, YouTube videos and PDFs using your signed-in ChatGPT session. Ask follow-up questions, or collect pages into a batch workspace with previews, saved results and portable sessions.
 
-[Visit the Sumyst website](https://the-lucky-clover.github.io/sumyst/). The static site lives in `docs/` and publishes through `.github/workflows/pages.yml`. Onboarding uses current product screenshots instead of a video. Video and selected-text actions share the jade/violet glass surface in `shared/glass-button.css`; run `node scripts/sync-glass-button.cjs` after editing that stylesheet.
+[Visit the SmryX website](https://smryx.com/). The static site lives in `docs/` and publishes through `.github/workflows/pages.yml`. Onboarding uses current product screenshots instead of a video. Video and selected-text actions share the jade/violet glass surface in `shared/glass-button.css`; run `node scripts/sync-glass-button.cjs` after editing that stylesheet.
 
-The website footer links the [Privacy Policy](https://the-lucky-clover.github.io/sumyst/privacy.html) and [Terms of Use](https://the-lucky-clover.github.io/sumyst/terms.html). Run `node scripts/sync-site-footer.cjs` after changing the shared footer. `npm run audit:brand` checks current source, minified bundles, escaped/joined/base64 strings, file paths, and ZIP contents for retired branding; it does not rewrite Git history or remove third-party licensing notices. The audit also runs on repository pushes and pull requests.
+The website footer links the [Privacy Policy](https://smryx.com/privacy.html) and [Terms of Use](https://smryx.com/terms.html). Run `node scripts/sync-site-footer.cjs` after changing the shared footer. `npm run audit:brand` checks current source, minified bundles, escaped/joined/base64 strings, file paths, and ZIP contents for retired branding; it does not rewrite Git history or remove third-party licensing notices. The audit also runs on repository pushes and pull requests.
+
+Website analytics uses the same GA property as the extension, with a separate visitor choice and identifiers. Its Google tag loads only after **Allow analytics**; **Analytics choices** in the footer reopens that control. Website events include `page_view` (`surface=website`), `website_install_opened`, and `website_download_clicked`. Main manual page-view URLs omit query strings and fragments. The extension continues using its independent, default-on usage preference and server relay.
 
 In **Settings → Popup design**, choose **City Console** for an optional 1950s-style Bakelite reading console with brass trim and tactile red controls. **Classic** remains the default. The layout preference is independent of light/dark mode and custom palettes, updates open popups immediately, and preserves summaries and question support. Run `npm run test:popup-layout` for its browser regression.
 
@@ -13,7 +15,7 @@ In **Settings → Popup design**, choose **City Console** for an optional 1950s-
 1. Download/clone this repository.
 2. Open `chrome://extensions`, enable **Developer mode**, and choose **Load unpacked**.
 3. Select the repository root containing `manifest.json`.
-4. Sign in to [ChatGPT](https://chatgpt.com/) in the same browser, then open a webpage and click Sumyst.
+4. Sign in to [ChatGPT](https://chatgpt.com/) in the same browser, then open a webpage and click SmryX.
 
 The extension uses ChatGPT's web interface with automatic routing. It does not require an API key or a model selection. ChatGPT session availability and service changes can affect requests.
 

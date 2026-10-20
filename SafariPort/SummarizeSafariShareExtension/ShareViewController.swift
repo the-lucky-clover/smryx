@@ -1,5 +1,5 @@
 // ShareViewController.swift
-// iOS Share Sheet Extension - handles "Share → Sumyst"
+// iOS Share Sheet Extension - handles "Share → SmryX"
 
 import UIKit
 import Social

@@ -10,7 +10,7 @@ struct ContentView: View {
                 .font(.system(size: 60))
                 .foregroundStyle(.green)
             
-            Text("Sumyst")
+            Text("SmryX")
                 .font(.title)
                 .fontWeight(.bold)
             

@@ -1,7 +1,7 @@
 /* One surface language for the video and selection actions. */
 #gpt-youtube-summarize-button,
 #gpt-beast-mode-button {
-  --sumyst-jade: #086454;
+  --smryx-jade: #086454;
   position: relative;
   isolation: isolate;
   box-sizing: border-box;
@@ -49,7 +49,7 @@
   background: conic-gradient(from 40deg, transparent 0 12%, #6af6c145 24%,
     #82b9ff24 38%, transparent 50%, #b492f947 65%, #e8b8e62b 78%, transparent 90%);
   filter: blur(14px);
-  animation: sumyst-liquid-light 16s linear infinite;
+  animation: smryx-liquid-light 16s linear infinite;
   pointer-events: none;
 }
 #gpt-youtube-summarize-button::after,
@@ -62,7 +62,7 @@
     linear-gradient(110deg, transparent 20%, #ffffff08 38%, transparent 55%);
   pointer-events: none;
 }
-.sumyst-button-symbol {
+.smryx-button-symbol {
   display: grid;
   place-items: center;
   width: 24px;
@@ -73,14 +73,14 @@
   background: linear-gradient(145deg, #ffffff38, #ffffff0a);
   box-shadow: inset 0 1px 0 #ffffff55, 0 2px 5px #071f3d40;
 }
-.sumyst-button-symbol svg { width: 18px; height: 18px; display: block; }
+.smryx-button-symbol svg { width: 18px; height: 18px; display: block; }
 #gpt-youtube-summarize-button:hover,
 #gpt-beast-mode-button:hover { transform: translateY(-1px); border-color: #e1fff2b3; box-shadow: inset 0 1px 0 #ffffff99, 0 6px 20px #18474459, 0 0 16px #8ccfce20; }
 #gpt-youtube-summarize-button:active,
 #gpt-beast-mode-button:active { transform: translateY(1px) scale(.985); }
 #gpt-youtube-summarize-button:focus-visible,
 #gpt-beast-mode-button:focus-visible { outline: 3px solid #a9d9ff; outline-offset: 3px; }
-@keyframes sumyst-liquid-light { to { transform: rotate(360deg); } }
+@keyframes smryx-liquid-light { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
   #gpt-youtube-summarize-button::before, #gpt-beast-mode-button::before { animation: none; }
   #gpt-youtube-summarize-button, #gpt-beast-mode-button { transition: none; }

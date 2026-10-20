@@ -2,7 +2,7 @@ const {chromium} = require('playwright');
 const {createServer} = require('node:http');
 const fs = require('node:fs'), path = require('node:path'), assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
-const article = '<!doctype html><html><head><title>A clearer reading</title></head><body style="margin:0;padding:40px;background:#eeeae3;color:#30463e;font:18px/1.8 system-ui"><main style="max-width:740px;margin:auto"><h1>Room for a good idea.</h1><p id="reading">' + 'An interesting page deserves a little attention. Sumyst helps keep the ideas, the details, and the next question together. '.repeat(6) + '</p></main></body></html>';
+const article = '<!doctype html><html><head><title>A clearer reading</title></head><body style="margin:0;padding:40px;background:#eeeae3;color:#30463e;font:18px/1.8 system-ui"><main style="max-width:740px;margin:auto"><h1>Room for a good idea.</h1><p id="reading">' + 'An interesting page deserves a little attention. SmryX helps keep the ideas, the details, and the next question together. '.repeat(6) + '</p></main></body></html>';
 (async () => {
   const server = createServer((req,res) => {
     if(req.url === '/article') {res.setHeader('Content-Type','text/html');res.end(article);return;}
@@ -38,9 +38,9 @@ const article = '<!doctype html><html><head><title>A clearer reading</title></he
       if (await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)) console.log(await page.locator("body *").evaluateAll(els=>els.filter(el=>el.getBoundingClientRect().right>innerWidth+1).map(el=>({tag:el.tagName,cls:el.className,width:el.getBoundingClientRect().width,right:el.getBoundingClientRect().right})).slice(0,10)));
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`marketing overflow at ${width}`);
       assert.ok(await page.locator('img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0)));
-      await page.screenshot({path:path.join(root,`artifacts/sumyst-site-${width}.png`),fullPage:true});
+      await page.screenshot({path:path.join(root,`artifacts/smryx-site-${width}.png`),fullPage:true});
     }
-    await page.getByRole('button',{name:'Get Sumyst',exact:false}).first().click();
+    await page.getByRole('button',{name:'Get SmryX',exact:false}).first().click();
     await page.getByRole('dialog').waitFor();
     await page.getByRole('button',{name:'Safari & iOS',exact:true}).click();
     assert.ok(await page.getByRole('link',{name:'Open Safari build guide'}).isVisible());
@@ -68,7 +68,7 @@ const article = '<!doctype html><html><head><title>A clearer reading</title></he
     assert.equal((await worker.evaluate(()=>chrome.storage.local.get('bm_analytics_enabled'))).bm_analytics_enabled,false);
     await page.reload();
     assert.equal(await page.locator('#usage-statistics').isChecked(),false);
-    await page.screenshot({path:path.join(root,'artifacts/sumyst-onboarding.png'),fullPage:true});
+    await page.screenshot({path:path.join(root,'artifacts/smryx-onboarding.png'),fullPage:true});
     console.log('PASS: responsive screenshot onboarding, three setup steps, ChatGPT-only connection, and persistent analytics preference.');
     await page.setViewportSize({width:1000,height:700});
     await page.goto(`http://127.0.0.1:${server.address().port}/article`);
@@ -77,7 +77,7 @@ const article = '<!doctype html><html><head><title>A clearer reading</title></he
     const floating=page.getByRole('button',{name:'Generate Summary of selected text',exact:true});
     await floating.waitFor();
     assert.equal(await floating.innerText(),'Generate Summary');
-    await floating.screenshot({path:path.join(root,'artifacts/sumyst-floating-button.png')});
+    await floating.screenshot({path:path.join(root,'artifacts/smryx-floating-button.png')});
     assert.notEqual(await floating.evaluate(el=>getComputedStyle(el,'::before').animationName),'none');
     await page.emulateMedia({reducedMotion:'reduce'});
     assert.equal(await floating.evaluate(el=>getComputedStyle(el,'::before').animationName),'none');
@@ -90,7 +90,7 @@ const article = '<!doctype html><html><head><title>A clearer reading</title></he
     const video=page.getByRole('button',{name:'Generate Summary',exact:true});
     await video.waitFor();
     assert.equal(await video.innerText(),'Generate Summary');
-    await video.screenshot({path:path.join(root,'artifacts/sumyst-video-button.png')});
+    await video.screenshot({path:path.join(root,'artifacts/smryx-video-button.png')});
     console.log('PASS: glass video/selection buttons, new labels, selected-text preservation, working popup action, and reduced-motion support.');
     assert.deepEqual(errors,[]);
   } finally {

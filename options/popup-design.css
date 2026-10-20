@@ -10,7 +10,7 @@
 .popup-design-card b { font-size:14px; font-weight:650; }
 .popup-design-card small { display:block; color:#687b6e; font-size:12px; line-height:1.7; margin-top:10px; }
 .popup-design-preview { height:130px; margin-top:15px; border-radius:10px; overflow:hidden; position:relative; border:1px solid #d4ded7; background:#f0f4f1; padding:14px; }
-.popup-design-preview:before { content:"Sumyst"; display:block; font:bold 13px Georgia,serif; color:#35574c; border-bottom:1px solid #d4ded7; padding-bottom:9px; }
+.popup-design-preview:before { content:"SmryX"; display:block; font:bold 13px Georgia,serif; color:#35574c; border-bottom:1px solid #d4ded7; padding-bottom:9px; }
 .popup-design-preview:after { content:""; display:block; height:58px; margin-top:12px; background:repeating-linear-gradient(transparent 0 9px,#becfc4 9px 11px,transparent 11px 17px); opacity:.7; }
 .popup-design-preview.city { border:1px solid #b58e55; background:linear-gradient(125deg,#f5e6bc,#d7b67e); box-shadow:inset 0 2px 1px #fff9,inset 0 -3px 4px #78552a40; padding:12px 18px 25px; }
 .popup-design-preview.city:before { color:#923f34; text-shadow:0 1px 0 #fff6; border-color:#a9895655; font-style:italic; }

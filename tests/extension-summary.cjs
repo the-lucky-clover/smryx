@@ -100,7 +100,7 @@ const assert = require('node:assert/strict');
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') console.log('CONSOLE', message.text().slice(0, 500)); });
     const url = `http://127.0.0.1:${server.address().port}/article`;
-    if (process.env.SUMYST_FULLTEXT_ONLY) {await verifyFullText();return;}
+    if (process.env.SMRYX_FULLTEXT_ONLY) {await verifyFullText();return;}
     await page.goto(url);
     await page.bringToFront();
     await worker.evaluate(async url => {
@@ -415,7 +415,7 @@ const assert = require('node:assert/strict');
     assert.ok(longRequests.length >= 4, 'long articles require every section plus synthesis');
     assert.ok(longRequests.slice(0,-1).some(prompt => prompt.includes('TAIL_EVIDENCE_927')), 'final source section reaches the engine');
     assert.ok(longRequests.at(-1).includes('notes cover every source section'), 'popup renders a final synthesis');
-    if (process.env.SUMYST_CAPTURE_ASSETS) {
+    if (process.env.SMRYX_CAPTURE_ASSETS) {
       await worker.evaluate(async () => {globalThis.productCapture=true;await chrome.storage.session.clear();});
       const demoUrl = url.replace('/article','/reading-demo');
       await page.goto(demoUrl);

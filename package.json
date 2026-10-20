@@ -1,5 +1,5 @@
 {
-  "name": "sumyst",
+  "name": "smryx",
   "version": "1.9.9",
   "private": true,
   "description": "Webpage summaries, questions and batch sessions powered by your signed-in ChatGPT session.",
@@ -15,7 +15,8 @@
     "test:presentation": "node tests/presentation.cjs",
     "test:popup-layout": "node tests/retro-popup.cjs",
     "audit:brand": "node scripts/audit-retired-brand.cjs",
-    "test:legal": "node tests/legal-pages.cjs"
+    "test:legal": "node tests/legal-pages.cjs",
+    "test:website-analytics": "node tests/website-analytics.cjs"
   },
   "devDependencies": {
     "playwright": "1.57.0"

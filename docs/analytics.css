@@ -1,0 +1,13 @@
+.website-analytics-choice { position:fixed; z-index:50; bottom:18px; left:50%; transform:translateX(-50%); width:min(850px,calc(100% - 32px)); display:flex; align-items:center; gap:28px; padding:22px 25px; background:#f8faf2f5; color:#284a39; border:1px solid #bbcdb0; border-radius:17px; box-shadow:0 10px 45px #253a3b40,inset 0 1px 0 white; backdrop-filter:blur(18px); font:12px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.website-analytics-choice[hidden] { display:none; }
+.website-analytics-choice b { font-size:14px; font-weight:600; }
+.website-analytics-choice p { margin:7px 0 0; font-size:11px; line-height:1.8; color:#617355; }
+.website-analytics-choice a { color:#315b3a; }
+.analytics-choice-actions { flex-shrink:0; display:flex; flex-direction:column; gap:8px; }
+.analytics-choice-actions button { min-height:40px; padding:9px 15px; border-radius:9px; border:1px solid #9db48c; background:#e5edda; color:#2b4f33; font:600 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.analytics-choice-actions button:first-child { background:#355e46; color:#f1fae8; border-color:#355e46; }
+.analytics-choice-actions button:hover { filter:brightness(.96); }
+footer.corporate-footer nav button[data-analytics-choices] { background:none; border:0; padding:0; color:#64765b; font:11px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; min-height:30px; text-align:left; }
+footer.corporate-footer nav button[data-analytics-choices]:hover { text-decoration:underline; }
+.website-analytics-choice button:focus-visible,footer button[data-analytics-choices]:focus-visible { outline:3px solid #8766ab; outline-offset:3px; }
+@media(max-width:600px) { .website-analytics-choice { bottom:10px; padding:18px; gap:15px; flex-direction:column; align-items:stretch; max-height:calc(100dvh - 20px); overflow:auto; } .analytics-choice-actions { flex-direction:row; } .analytics-choice-actions button { flex:1; min-height:44px; } footer.corporate-footer nav button[data-analytics-choices] { font-size:12px; min-height:40px; } }

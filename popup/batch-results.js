@@ -144,7 +144,7 @@ function showReader(result) {
 }
 function download(text, type, extension) {
   const url=URL.createObjectURL(new Blob([text],{type})), link=element("a");
-  link.href=url; link.download=`sumyst-batch-${new Date().toISOString().replace(/[:.]/g,"-")}.${extension}`;
+  link.href=url; link.download=`smryx-batch-${new Date().toISOString().replace(/[:.]/g,"-")}.${extension}`;
   document.body.append(link); link.click(); link.remove(); setTimeout(()=>URL.revokeObjectURL(url),10000);
   $("export-menu").hidden=true; $("export-menu-button").setAttribute("aria-expanded","false");
 }

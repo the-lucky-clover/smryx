@@ -1,7 +1,7 @@
 {
   "name": "chatgpt-beast-mode-tests",
   "version": "1.0.0",
-  "description": "Automated playtests for Sumyst extension",
+  "description": "Automated playtests for SmryX extension",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",

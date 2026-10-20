@@ -1,4 +1,4 @@
-name: Publish Sumyst website
+name: Publish SmryX website
 on:
   push:
     branches: [main]

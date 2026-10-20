@@ -11,7 +11,7 @@ final class ShareViewController: UIViewController {
         preferredContentSize = CGSize(width: 520, height: 320)
         view.backgroundColor = .systemBackground
         let title = UILabel()
-        title.text = "Sumyst"
+        title.text = "SmryX"
         title.font = .preferredFont(forTextStyle: .title2)
         title.adjustsFontForContentSizeCategory = true
         messageLabel.numberOfLines = 0
@@ -40,7 +40,7 @@ final class ShareViewController: UIViewController {
     private func loadSafariPage() {
         let items = extensionContext?.inputItems.compactMap { $0 as? NSExtensionItem } ?? []
         guard let provider = items.flatMap({ $0.attachments ?? [] }).first(where: { $0.hasItemConformingToTypeIdentifier(UTType.propertyList.identifier) }) else {
-            messageLabel.text = "Open this webpage in Safari, then choose Sumyst from Safari’s Share menu. Enable the Sumyst Safari extension and allow access to this website first."
+            messageLabel.text = "Open this webpage in Safari, then choose SmryX from Safari’s Share menu. Enable the SmryX Safari extension and allow access to this website first."
             return
         }
         provider.loadItem(forTypeIdentifier: UTType.propertyList.identifier, options: nil) { [weak self] item, _ in
@@ -54,7 +54,7 @@ final class ShareViewController: UIViewController {
                     return
                 }
                 self.pageURL = url
-                self.messageLabel.text = "Return to \(url.host ?? "this page") and open its summary panel. The Sumyst Safari extension must be enabled with access to this site, and ChatGPT must be signed in."
+                self.messageLabel.text = "Return to \(url.host ?? "this page") and open its summary panel. The SmryX Safari extension must be enabled with access to this site, and ChatGPT must be signed in."
                 self.openButton.isEnabled = true
             }
         }

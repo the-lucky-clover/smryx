@@ -1,4 +1,4 @@
-# Automated Playtests for Sumyst
+# Automated Playtests for SmryX
 
 ## Self-contained regression checks
 

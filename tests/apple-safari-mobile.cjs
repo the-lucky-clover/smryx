@@ -35,7 +35,7 @@ const assert = require("node:assert/strict");
         return original(input,options);
       };
     });
-    if(process.env.SUMYST_POPUP_LAYOUT==="city-console")await worker.evaluate(()=>chrome.storage.local.set({bm_popup_layout:"city-console"}));
+    if(process.env.SMRYX_POPUP_LAYOUT==="city-console")await worker.evaluate(()=>chrome.storage.local.set({bm_popup_layout:"city-console"}));
     const page=await context.newPage();
     await page.goto(`http://127.0.0.1:${server.address().port}/article`);
     await page.addScriptTag({content:fs.readFileSync(path.join(root,"AppleSafari/Native/Share/SharePreprocessor.js"),"utf8")});

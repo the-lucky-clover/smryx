@@ -1,15 +1,19 @@
-# Sumyst usage analytics
+# SmryX usage analytics
 
 Property: **G-WV65497MC0**. The Cloudflare Worker is deployed at **https://beast-mode-analytics.luckyclover1.workers.dev** and the extension's `/events` URL is configured. Collection still requires the private GA secret and an enabled analytics preference.
+
+The public website also uses this property through `docs/analytics.js`. That Google tag loads only after the visitor selects **Allow analytics**; website and extension preferences/identifiers are separate. In GA Admin → Data streams → stream **16155757434**, rename the stream to **SmryX** and set its Website URL to **https://smryx.com/**. Keep Measurement ID **G-WV65497MC0** and its existing secret. Renaming or changing that URL does not itself start collection.
+
+Visit the live site, select **Allow analytics**, open its installation dialog, and check GA **Reports → Realtime overview** for `page_view` and `website_install_opened`. Download/build-guide links emit `website_download_clicked`. Extension use emits separate names such as `popup_opened` and `summary_completed`. A Google tag is appropriate on the public website; Chrome Manifest V3 extension pages use Measurement Protocol instead of remotely hosted tag code. The Worker `/health` result and HTTP 204 responses do not independently verify GA reporting. Ordinary reports can populate later than Realtime.
 
 Usage analytics is enabled by default when no preference has been saved. An existing explicit opt-out stays off. Users can disable it in **Settings → Usage analytics**, which stops sends and clears local analytics identifiers. The extension still sends nothing without a configured HTTPS relay. This release does not reuse the previous publisher's identifiers.
 
 ## Activate the Cloudflare deployment
 
-1. In Google Analytics, go to **Admin → Data streams**, select the Web stream with Measurement ID **G-WV65497MC0**, then open **Measurement Protocol API secrets → Create**. Name it **Sumyst relay** and copy the generated secret value. Editor or Administrator access is required; accept the Measurement Protocol terms if prompted.
+1. In Google Analytics, go to **Admin → Data streams**, select the Web stream with Measurement ID **G-WV65497MC0**, then open **Measurement Protocol API secrets → Create**. Name it **SmryX relay** and copy the generated secret value. Editor or Administrator access is required; accept the Measurement Protocol terms if prompted.
 2. In Cloudflare, open **Workers & Pages → beast-mode-analytics → Settings → Variables and Secrets → Add**. Select **Secret**, name it exactly **GA_API_SECRET**, paste the value, and deploy/save. Do not add it to the public source files or send it in chat.
-3. In Chrome, open **chrome://extensions** and reload **Sumyst**. Open its **Settings → Usage analytics** and select **Check connection**.
-4. Once the connection is ready, confirm **Share usage statistics with Sumyst** is checked. It is enabled by default; if you previously turned it off, check it to enable it again. Use the extension, then check the property's Realtime report. HTTP success alone does not prove GA accepted the events.
+3. In Chrome, open **chrome://extensions** and reload **SmryX**. Open its **Settings → Usage analytics** and select **Check connection**.
+4. Once the connection is ready, confirm **Share usage statistics with SmryX** is checked. It is enabled by default; if you previously turned it off, check it to enable it again. Use the extension, then check the property's Realtime report. HTTP success alone does not prove GA accepted the events.
 
 This deployment allows `chrome-extension://onjmcmgcffeimccdjjolinhhhjigmmdi`, the ID observed when loading this project path in Chromium. If your installed extension has another ID, the connection check shows the exact origin to add to `ALLOWED_EXTENSION_ORIGINS`. Keep `analytics-server/wrangler.jsonc` in sync with any public variable changes in Cloudflare before redeploying.
 

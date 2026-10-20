@@ -43,8 +43,8 @@ export function exportSession(results) {
 export function importSession(text) {
   if (new TextEncoder().encode(text).length > MAX_SESSION_BYTES) throw new Error("Choose a session file smaller than 30 MB.");
   let session;
-  try {session = JSON.parse(text);} catch {throw new Error("This file is not valid JSON. Choose an exported Sumyst session.");}
-  if (session?.format !== SESSION_FORMAT || session.version !== 1 || !Array.isArray(session.results)) throw new Error("This is not a supported Sumyst batch session.");
+  try {session = JSON.parse(text);} catch {throw new Error("This file is not valid JSON. Choose an exported SmryX session.");}
+  if (session?.format !== SESSION_FORMAT || session.version !== 1 || !Array.isArray(session.results)) throw new Error("This is not a supported SmryX batch session.");
   if (session.results.length > 1000) throw new Error("A session can contain up to 1,000 pages.");
   const ids = new Set();
   return session.results.map((value, index) => {

@@ -1,5 +1,5 @@
 {
-  "name": "SumystSafari",
+  "name": "SmryXSafari",
   "options": {
     "createIntermediateGroups": true
   },
@@ -24,13 +24,13 @@
         "base": {
           "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.mac",
           "CODE_SIGN_ENTITLEMENTS": "Native/macOS.entitlements",
-          "PRODUCT_NAME": "Sumyst"
+          "PRODUCT_NAME": "SmryX"
         }
       },
       "info": {
         "path": "Native/Generated/chatgptbeastmode-mac-Info.plist",
         "properties": {
-          "CFBundleDisplayName": "Sumyst",
+          "CFBundleDisplayName": "SmryX",
           "CFBundleShortVersionString": "$(MARKETING_VERSION)",
           "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
           "LSApplicationCategoryType": "public.app-category.productivity"
@@ -58,13 +58,13 @@
           "APPLICATION_EXTENSION_API_ONLY": "YES",
           "SKIP_INSTALL": "YES",
           "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
-          "PRODUCT_NAME": "SumystSafariExtension"
+          "PRODUCT_NAME": "SmryXSafariExtension"
         }
       },
       "info": {
         "path": "Native/Generated/mac-extension-Info.plist",
         "properties": {
-          "CFBundleDisplayName": "Sumyst",
+          "CFBundleDisplayName": "SmryX",
           "CFBundleShortVersionString": "$(MARKETING_VERSION)",
           "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
           "BeastModeAppGroup": "group.com.luckyclover.chatgptbeastmode",
@@ -95,13 +95,13 @@
           "PRODUCT_BUNDLE_IDENTIFIER": "com.luckyclover.chatgptbeastmode.ios",
           "CODE_SIGN_ENTITLEMENTS": "Native/iOS.entitlements",
           "TARGETED_DEVICE_FAMILY": "1,2",
-          "PRODUCT_NAME": "Sumyst"
+          "PRODUCT_NAME": "SmryX"
         }
       },
       "info": {
         "path": "Native/Generated/chatgptbeastmode-ios-Info.plist",
         "properties": {
-          "CFBundleDisplayName": "Sumyst",
+          "CFBundleDisplayName": "SmryX",
           "CFBundleShortVersionString": "$(MARKETING_VERSION)",
           "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
           "UILaunchScreen": {},
@@ -145,13 +145,13 @@
           "APPLICATION_EXTENSION_API_ONLY": "YES",
           "SKIP_INSTALL": "YES",
           "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
-          "PRODUCT_NAME": "SumystSafariExtension"
+          "PRODUCT_NAME": "SmryXSafariExtension"
         }
       },
       "info": {
         "path": "Native/Generated/ios-extension-Info.plist",
         "properties": {
-          "CFBundleDisplayName": "Sumyst",
+          "CFBundleDisplayName": "SmryX",
           "CFBundleShortVersionString": "$(MARKETING_VERSION)",
           "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
           "BeastModeAppGroup": "group.com.luckyclover.chatgptbeastmode",
@@ -191,13 +191,13 @@
           "TARGETED_DEVICE_FAMILY": "1,2",
           "APPLICATION_EXTENSION_API_ONLY": "YES",
           "SKIP_INSTALL": "YES",
-          "PRODUCT_NAME": "SumystShare"
+          "PRODUCT_NAME": "SmryXShare"
         }
       },
       "info": {
         "path": "Native/Generated/ios-share-Info.plist",
         "properties": {
-          "CFBundleDisplayName": "Sumyst",
+          "CFBundleDisplayName": "SmryX",
           "CFBundleShortVersionString": "$(MARKETING_VERSION)",
           "CFBundleVersion": "$(CURRENT_PROJECT_VERSION)",
           "BeastModeAppGroup": "group.com.luckyclover.chatgptbeastmode",
@@ -217,7 +217,7 @@
     }
   },
   "schemes": {
-    "Sumyst macOS": {
+    "SmryX macOS": {
       "build": {
         "targets": {
           "BeastModeMac": "all"
@@ -227,7 +227,7 @@
         "config": "Debug"
       }
     },
-    "Sumyst iOS": {
+    "SmryX iOS": {
       "build": {
         "targets": {
           "BeastModeIOS": "all"

@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Sumyst",
+    "message": "SmryX",
     "description": "The name of the web-extension (45)"
   },
   "appDesc": {
-    "message": "Sumyst summarizes webpages, videos and PDFs, answers questions, and organizes batch results using your signed-in ChatGPT session.",
+    "message": "SmryX summarizes webpages, videos and PDFs, answers questions, and organizes batch results using your signed-in ChatGPT session.",
     "description": "The descirption of the web-extension (132)"
   },
   "defaultQuestion": {
@@ -27,7 +27,7 @@
     "message": "कृपया सारांश करण्यासाठी तुमचा प्रदाता निवडा"
   },
   "installSuccess": {
-    "message": "तयार! Sumyst वापरून एका क्लिकमध्ये कोणताही वेबपेज किंवा Youtube व्हिडिओ सारांशित करा! कोणत्याही <a>प्रश्न किंवा फीडबॅक</a>साठी आमच्याशी संपर्क साधा. आनंदी सारांशीकरण!",
+    "message": "तयार! SmryX वापरून एका क्लिकमध्ये कोणताही वेबपेज किंवा Youtube व्हिडिओ सारांशित करा! कोणत्याही <a>प्रश्न किंवा फीडबॅक</a>साठी आमच्याशी संपर्क साधा. आनंदी सारांशीकरण!",
     "description": "Success message after installing the extension"
   },
   "happySumarize": {
@@ -307,6 +307,6 @@
     "message": "Download for iPhone/iPad"
   },
   "appActionTitle": {
-    "message": "Sumyst - summarize this page"
+    "message": "SmryX - summarize this page"
   }
 }

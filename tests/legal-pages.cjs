@@ -19,6 +19,7 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
     const origin=`http://127.0.0.1:${server.address().port}`;
     for(const route of ['/','/privacy.html','/terms.html']){
       await page.goto(origin+route);
+      const off=page.getByRole('button',{name:'Keep analytics off',exact:true});if(await off.isVisible())await off.click();
       for(const width of [320,390,768,1440]){
         await page.setViewportSize({width,height:900});
         assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${route}: overflow at ${width}`);
@@ -30,18 +31,18 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
       }
       if(route!=='/'){
         await page.setViewportSize({width:390,height:844});
-        await page.screenshot({path:path.join(root,'artifacts',route.includes('privacy')?'sumyst-privacy-mobile.png':'sumyst-terms-mobile.png'),fullPage:true});
+        await page.screenshot({path:path.join(root,'artifacts',route.includes('privacy')?'smryx-privacy-mobile.png':'smryx-terms-mobile.png'),fullPage:true});
         const anchors=await page.locator('.legal-toc a').evaluateAll(els=>els.map(el=>el.getAttribute('href')));
         for(const anchor of anchors)assert.equal(await page.locator(anchor).count(),1,`Missing policy section ${anchor}`);
       }
     }
     await page.goto(origin+'/');
     await page.locator('footer').getByRole('link',{name:'Privacy Policy',exact:true}).click();
-    assert.equal(await page.title(),'Privacy Policy — Sumyst');
+    assert.equal(await page.title(),'Privacy Policy — SmryX');
     assert.match(await page.locator('main').innerText(),/enabled unless you have saved an opt-out/);
     assert.match(await page.locator('main').innerText(),/does not automatically erase events/);
     await page.locator('footer').getByRole('link',{name:'Terms of Use',exact:true}).click();
-    assert.equal(await page.title(),'Terms of Use — Sumyst');
+    assert.equal(await page.title(),'Terms of Use — SmryX');
     assert.match(await page.locator('main').innerText(),/does not grant permission to use a third-party service/);
     assert.match(await page.locator('main').innerText(),/Mandatory consumer protections/);
     assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);
