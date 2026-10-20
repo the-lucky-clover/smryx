@@ -92,7 +92,7 @@ Drag these folders into **SummarizeSafariExtension/Resources/** in Xcode:
 ## 🎯 Share Sheet Flow (iOS)
 
 1. User visits webpage in Safari
-2. Tap Share → "SmryX" 
+2. Tap Share → "SmryX"
 3. ShareViewController extracts URL
 4. Opens `summarizesafari://summarize?url=...` 
 5. Host app handles deep link → opens extension popup with page pre-loaded
