@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smryx</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="bar">
+    <span class="logo">Smryx</span>
+    <span id="usage" class="usage"></span>
+  </header>
+
+  <main>
+    <div id="notice" class="notice hidden"></div>
+
+    <section id="extracting" class="hidden">
+      <div class="spinner"></div>
+      <p>Extracting article…</p>
+    </section>
+
+    <section id="summarizing" class="hidden">
+      <div class="spinner"></div>
+      <p>Summarizing… keep this open.</p>
+    </section>
+
+    <section id="idle">
+      <h2 id="articleTitle">Summarize this page</h2>
+      <p class="hint">The article is extracted on your Mac and summarized with your own AI key.</p>
+
+      <div class="length-row" role="radiogroup" aria-label="Summary length">
+        <label><input type="radio" name="length" value="short"> Short</label>
+        <label><input type="radio" name="length" value="medium" checked> Medium</label>
+        <label><input type="radio" name="length" value="long"> Long</label>
+      </div>
+
+      <button id="summarizeBtn" class="primary">Summarize</button>
+    </section>
+
+    <section id="result" class="hidden">
+      <h2 id="resultTitle"></h2>
+      <p id="truncatedNote" class="note hidden">The article was longer than the limit and was truncated before summarizing.</p>
+      <div id="summaryText" class="summary"></div>
+      <p id="meta" class="meta"></p>
+      <div class="actions">
+        <button id="copyBtn">Copy</button>
+        <button id="saveBtn" class="primary">Save to library</button>
+      </div>
+      <button id="againBtn" class="link">Summarize again</button>
+    </section>
+
+    <div id="error" class="error hidden"></div>
+  </main>
+
+  <footer>
+    <span>Add your API key in the Smryx app → Settings.</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
