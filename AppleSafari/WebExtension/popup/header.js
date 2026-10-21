@@ -24,18 +24,11 @@ on(document.getElementById("close-btn"), "click", () => {
   else window.close();
 });
 
-document.querySelector(".popup-header")?.addEventListener("mousedown", event => {
-  if (event.button !== 0 || event.target.closest("button, input, .popover") || window.parent === window) return;
+// Screen coordinates stay stable while the parent moves this iframe.
+document.querySelector(".popup-header")?.addEventListener("pointerdown", event => {
+  if (event.button !== 0 || event.target.closest("button, input, a, .popover") || window.parent === window) return;
   event.preventDefault();
-  const move = event => window.parent.postMessage({type: "DRAG_MOUSEMOVE", movementX: event.movementX, movementY: event.movementY, runtimeId: chrome.runtime.id}, "*");
-  const stop = () => {
-    document.removeEventListener("mousemove", move);
-    document.removeEventListener("mouseup", stop);
-    window.removeEventListener("blur", stop);
-  };
-  document.addEventListener("mousemove", move);
-  document.addEventListener("mouseup", stop);
-  window.addEventListener("blur", stop);
+  window.parent.postMessage({type: "POPUP_DRAG_START", screenX: event.screenX, screenY: event.screenY, runtimeId: chrome.runtime.id}, "*");
 });
 
 // Remove info/refresh buttons from summary header, keep only copy

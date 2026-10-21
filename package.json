@@ -16,7 +16,8 @@
     "test:popup-layout": "node tests/retro-popup.cjs",
     "audit:brand": "node scripts/audit-retired-brand.cjs",
     "test:legal": "node tests/legal-pages.cjs",
-    "test:website-analytics": "node tests/website-analytics.cjs"
+    "test:website-analytics": "node tests/website-analytics.cjs",
+    "test:popup-window": "node tests/popup-window.cjs"
   },
   "devDependencies": {
     "playwright": "1.57.0"
