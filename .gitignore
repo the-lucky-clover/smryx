@@ -2,6 +2,26 @@ xcuserdata/
 DerivedData/
 .DS_Store
 *.xcworkspace/xcuserdata/
+
+# Bundler (fastlane toolchain)
+.bundle/
+vendor/bundle/
+
+# Fastlane output — regenerated every run, never commit
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/README.md
+
+# Build products from fastlane archives
+build/
+*.pkg
+*.dSYM.zip
+
+# Secrets — Mac-only, never commit
+.env
+fastlane/.env
 build/
 .build/
 *.dSYM.zip

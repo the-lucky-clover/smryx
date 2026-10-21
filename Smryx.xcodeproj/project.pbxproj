@@ -45,6 +45,7 @@
 		000000000000000000000045 /* icon-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001E /* icon-96.png */; };
 		000000000000000000000046 /* icon-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000001F /* icon-128.png */; };
 		000000000000000000000047 /* Smryx Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 000000000000000000000021 /* Smryx Extension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00000000000000000000006A /* SmryxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006C /* SmryxUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 000000000000000000000057;
 			remoteInfo = "Smryx Extension";
+		};
+		00000000000000000000006B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 000000000000000000000048 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000056;
+			remoteInfo = "Smryx";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -105,6 +113,8 @@
 		00000000000000000000001F /* icon-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Smryx Extension/Resources/icons/icon-128.png"; sourceTree = SOURCE_ROOT; };
 		000000000000000000000020 /* Smryx.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = Smryx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		000000000000000000000021 /* Smryx Extension.appex */ = {isa = PBXFileReference; lastKnownFileType = wrapper.app-extension; path = "Smryx Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		00000000000000000000006C /* SmryxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmryxUITests/SmryxUITests.swift"; sourceTree = SOURCE_ROOT; };
+		00000000000000000000006D /* SmryxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.ui-testing; includeInIndex = 0; path = SmryxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		00000000000000000000006E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -130,6 +147,7 @@
 			children = (
 			00000000000000000000004A /* Smryx */,
 			00000000000000000000004F /* Smryx Extension */,
+			00000000000000000000006F /* SmryxUITests */,
 			000000000000000000000055 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,6 +157,7 @@
 			children = (
 			000000000000000000000020 /* Smryx.app */,
 			000000000000000000000021 /* Smryx Extension.appex */,
+			00000000000000000000006D /* SmryxUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,6 +278,14 @@
 			path = "icons";
 			sourceTree = "<group>";
 		};
+		00000000000000000000006F /* SmryxUITests */ = {
+			isa = PBXGroup;
+			children = (
+			00000000000000000000006C /* SmryxUITests.swift */,
+			);
+			path = "SmryxUITests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +323,24 @@
 			productReference = 000000000000000000000021 /* Smryx Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		000000000000000000000070 /* SmryxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000076 /* Build configuration list for PBXNativeTarget "SmryxUITests" */;
+			buildPhases = (
+			000000000000000000000072 /* Sources */,
+			00000000000000000000006E /* Frameworks */,
+			000000000000000000000071 /* Resources */,
+			);
+			dependencies = (
+				000000000000000000000073 /* PBXTargetDependency */,
+			);
+			buildRules = (
+			);
+			name = "SmryxUITests";
+			productName = "SmryxUITests";
+			productReference = 00000000000000000000006D /* SmryxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -311,6 +356,10 @@
 					};
 					000000000000000000000057 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					000000000000000000000070 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 000000000000000000000056;
 					};
 				};
 			};
@@ -329,6 +378,7 @@
 			targets = (
 				000000000000000000000056 /* Smryx */,
 				000000000000000000000057 /* Smryx Extension */,
+				000000000000000000000070 /* SmryxUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -357,6 +407,13 @@
 				000000000000000000000044 /* icon-48.png in Resources */,
 				000000000000000000000045 /* icon-96.png in Resources */,
 				000000000000000000000046 /* icon-128.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +459,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		000000000000000000000072 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000006A /* SmryxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -409,6 +474,11 @@
 			isa = PBXTargetDependency;
 			target = 000000000000000000000057 /* Smryx Extension */;
 			targetProxy = 000000000000000000000068 /* PBXContainerItemProxy */;
+		};
+		000000000000000000000073 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000056 /* Smryx */;
+			targetProxy = 00000000000000000000006B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -513,6 +583,44 @@
 			};
 			name = Release;
 		};
+		000000000000000000000074 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luckyclover.smryx.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Smryx;
+			};
+			name = Debug;
+		};
+		000000000000000000000075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luckyclover.smryx.UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Smryx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,6 +647,15 @@
 			buildConfigurations = (
 				000000000000000000000066 /* Debug */,
 				000000000000000000000067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000076 /* Build configuration list for PBXNativeTarget "SmryxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000074 /* Debug */,
+				000000000000000000000075 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

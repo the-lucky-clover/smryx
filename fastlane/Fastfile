@@ -1,0 +1,51 @@
+# Smryx — Fastlane lanes. Run everything from the `smryx` folder:
+#   bundle exec fastlane beta    → build + upload to TestFlight (Mac)
+#   bundle exec fastlane test    → run the automated smoke test on this Mac
+#   bundle exec fastlane devices → (not needed for Smryx — see lane below)
+# Smryx is a MAC app (plus its Safari extension). There is no iPhone version,
+# so TestFlight here means: the build lands on this Mac via TestFlight.
+# Steven's step-by-step is TESTING.md — these comments are for future editors.
+
+default_platform(:mac)
+
+XCODEPROJ = "Smryx.xcodeproj"
+SCHEME    = "Smryx"
+
+platform :mac do
+  desc "Bump the build number, archive the Mac app, and upload to " \
+       "TestFlight. Install it on the Mac from the TestFlight app."
+  lane :beta do
+    increment_build_number(xcodeproj: XCODEPROJ)
+    build_app(
+      project: XCODEPROJ,
+      scheme: SCHEME,
+      export_method: "app-store",
+      output_directory: "build"
+    )
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+    UI.success("Uploaded! After Apple finishes processing (a few minutes), " \
+               "the build shows up in TestFlight on this Mac.")
+  end
+
+  desc "Run the automated smoke test on this Mac (launches Smryx, checks " \
+       "a window appears)."
+  lane :test do
+    run_tests(
+      project: XCODEPROJ,
+      scheme: SCHEME,
+      destination: "platform=macOS",
+      output_directory: "fastlane/test_output"
+    )
+  end
+
+  desc "Not needed for Smryx (it's a Mac app — no iPhones to register). " \
+       "Kept for symmetry with 1918; explains itself when run."
+  lane :devices do
+    UI.header("Devices — Smryx edition")
+    UI.message("Smryx is a Mac-only app, so there are no iPhones to " \
+               "register and no UDIDs to collect. Testing happens right " \
+               "here on this Mac, and TestFlight delivers the builds.")
+    UI.message("If you ever want the UDID flow, it's in the 1918 project: " \
+               "1918-ace-of-aces/native/fastlane/Fastfile, lane :devices.")
+  end
+end

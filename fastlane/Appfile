@@ -1,0 +1,15 @@
+app_identifier("com.luckyclover.smryx") # The bundle identifier of the app
+
+# ────────────────────────────────────────────────────────────────────────────
+# STEVEN — THE ONE LINE TO CHECK:
+# This must be the email of the Apple ID you sign in to Xcode and
+# App Store Connect with. It's pre-filled with your account email.
+# If your Apple ID uses a different email, change ONLY this line.
+apple_id("pounds1@gmail.com")
+# ────────────────────────────────────────────────────────────────────────────
+
+# team_id("XXXXXXXXXX")      # ← leave commented out. Automatic signing finds
+# itc_team_id("XXXXXXXXXX")  #   your team from your Xcode login on its own.
+#                            #   Only fill these in if fastlane ever complains
+#                            #   about multiple teams — then copy the exact
+#                            #   red error text back to Sailor Ron.
