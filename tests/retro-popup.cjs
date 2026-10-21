@@ -39,6 +39,21 @@ const root=path.resolve(__dirname,'..');
     await frame.locator('html[data-bm-layout="classic"]').waitFor();
     assert.equal(await frame.locator('.city-control-dock').count(),0);
     assert.equal(await worker.evaluate(async()=>Object.hasOwn(await chrome.storage.local.get('bm_popup_layout'),'bm_popup_layout')),false);
+    const initial=await page.locator('#chatgpt-summarize-popup').boundingBox();
+    assert.equal(initial.width,910);assert.equal(initial.height,780);
+    assert.equal(await frame.locator('html').evaluate(el=>getComputedStyle(el).fontSize),'18px');
+    await frame.locator('#text-size-btn').click();await frame.locator('#text-size-slider').press('End');
+    assert.equal(await frame.locator('#gpt-answer').evaluate(el=>getComputedStyle(el).fontSize),'36px');
+    assert.ok(await frame.locator('.popup-container').evaluate(el=>getComputedStyle(el).backgroundImage.includes('gradient')));
+    for(const width of [320,390,1280]){
+      await page.setViewportSize({width,height:900});
+      await page.locator('#chatgpt-summarize-popup').evaluate(el=>el._clampDrag?.());
+      assert.ok(await frame.locator('html').evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Classic large type must not overflow');
+    }
+    await page.setViewportSize({width:1280,height:900});
+    await frame.locator('#text-size-slider').fill('120');
+    await frame.locator('#text-size-slider').dispatchEvent('input');
+    await frame.locator('#text-size-btn').click();
     const content=await frame.locator('#gpt-answer').innerText();
     const settings=await context.newPage();settings.on('pageerror',e=>errors.push(e.message));
     await settings.goto(`chrome-extension://${new URL(worker.url()).host}/options/index.html`);
@@ -58,9 +73,9 @@ const root=path.resolve(__dirname,'..');
     await page.locator('#chatgpt-summarize-popup').screenshot({path:path.join(root,'artifacts/smryx-city-console-dark.png'),animations:'disabled'});
     await frame.locator('#text-size-btn').click();
     await frame.locator('#text-size-slider').press('End');
-    await frame.locator('#text-size-slider').evaluate(el=>{if(el.value!=='130')throw Error('Expected 130%, got '+el.value);});
-    assert.equal(await frame.locator('#text-size-value').innerText(),'130');
-    assert.equal(await worker.evaluate(async()=>(await chrome.storage.local.get('bm_font_scale')).bm_font_scale),130);
+    await frame.locator('#text-size-slider').evaluate(el=>{if(el.value!=='240')throw Error('Expected 240%, got '+el.value);});
+    assert.equal(await frame.locator('#text-size-value').innerText(),'240');
+    assert.equal(await worker.evaluate(async()=>(await chrome.storage.local.get('bm_font_scale')).bm_font_scale),240);
     await frame.locator('#text-size-btn').click();
     for(const [width,height] of [[320,568],[390,844],[844,390],[768,1024]]){
       await page.setViewportSize({width,height});
@@ -76,7 +91,7 @@ const root=path.resolve(__dirname,'..');
       }
       const tabs=await frame.locator('[role="tab"]').evaluateAll(els=>els.map(el=>{const r=el.getBoundingClientRect();return{x:r.x,right:r.right};}));
       assert.ok(tabs.every(tab=>tab.x>=0&&tab.right<=viewport.w+1),JSON.stringify({width,tabs,viewport}));
-      if(width<=390){const heading=await frame.locator('#gpt-answer>h1').boundingBox();assert.ok(heading.height<100,'Title must not collapse into single-letter columns');}
+      if(width<=390){const heading=await frame.locator('#gpt-answer>h1').boundingBox();assert.ok(heading.width>160&&heading.height<360,'Title must not collapse into single-letter columns');}
       await frame.locator('#text-size-btn').click();
       const pop=await frame.locator('#text-size-popover').evaluate(el=>{const r=el.getBoundingClientRect();return{x:r.x,y:r.y,right:r.right,bottom:r.bottom};});
       assert.ok(pop.x>=0&&pop.y>=0&&pop.right<=viewport.w+1&&pop.bottom<=viewport.h+1,JSON.stringify({width,height,pop,viewport}));
@@ -114,7 +129,7 @@ const root=path.resolve(__dirname,'..');
     await page.locator('#chatgpt-summarize-popup').waitFor({state:'hidden'});
     assert.deepEqual(errors,[]);
     console.log('PASS: Classic remains default; live design switching preserves results, mode/palettes, questions, text size, links, Settings and Close.');
-    console.log('PASS: City Console light/dark screenshots, 320px portrait through tablet/landscape, 130% type, 44px controls, and upward text-size popover.');
+    console.log('PASS: City Console light/dark screenshots, 320px portrait through tablet/landscape, 240% type, 44px controls, and upward text-size popover.');
   }finally{
     server.closeAllConnections();server.close();
     if(context){const s=await context.browser().newBrowserCDPSession();const {processInfo}=await s.send('SystemInfo.getProcessInfo');const pid=processInfo.find(p=>p.type==='browser')?.id;await s.detach();const timer=setTimeout(()=>{try{if(pid)process.kill(pid);}catch{}},5000);await context.close();clearTimeout(timer);}

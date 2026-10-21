@@ -43,3 +43,7 @@ fs.writeFileSync(popupHTML, fs.readFileSync(popupHTML, "utf8").replace('<script 
 const hash = crypto.createHash("sha256").update(fs.readFileSync(path.join(root, "background/index.js"))).digest("hex");
 fs.writeFileSync(path.join(apple, "COPY_INFO.json"), JSON.stringify({sourceVersion: manifest.version, sourceWorkerSHA256: hash, platforms: ["macOS 14+", "iOS/iPadOS 17+"], nativeSafariTested: false}, null, 2) + "\n");
 console.log("Apple copy prepared at " + output);
+
+// Keep Safari's existing compact default; the larger desktop window is Chrome-only.
+const contentFile=path.join(output,'content-script/index.js');
+fs.writeFileSync(contentFile,fs.readFileSync(contentFile,'utf8').replace('r.style.width="910px",r.style.height="780px"','r.style.width="700px",r.style.height="600px"'));

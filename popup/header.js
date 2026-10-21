@@ -43,8 +43,9 @@ const summaryActionsObserver = new MutationObserver(() => {
 });
 summaryActionsObserver.observe(document.body, {subtree: !0, childList: !0});
 
+const defaultFontScale = chrome.runtime.getManifest().background?.service_worker ? 120 : 100;
 function applyFontScale(percent) {
-  percent = Number.isFinite(Number(percent)) ? Math.min(130, Math.max(85, Number(percent))) : 100;
+  percent = Number.isFinite(Number(percent)) ? Math.min(240, Math.max(85, Number(percent))) : defaultFontScale;
   document.documentElement.style.setProperty("--font-scale", String(percent / 100));
   const label = document.getElementById("text-size-value");
   if (label) label.textContent = String(percent);
@@ -75,7 +76,7 @@ async function initTheme() {
 }
 
 async function initFontSize() {
-  const stored = await storage.get(STORAGE_KEYS.fontScale, 100);
+  const stored = await storage.get(STORAGE_KEYS.fontScale, defaultFontScale);
   applyFontScale(stored);
 
   const btn = document.getElementById("text-size-btn");
@@ -125,7 +126,7 @@ document.addEventListener("keydown", event => {
 
 Promise.all([initTheme(), initFontSize(), applyStoredActiveTheme()]).catch(error => showError(error.message));
 storage.onChange((changes) => {
-  if (STORAGE_KEYS.fontScale in changes) applyFontScale(changes[STORAGE_KEYS.fontScale].newValue ?? 100);
+  if (STORAGE_KEYS.fontScale in changes) applyFontScale(changes[STORAGE_KEYS.fontScale].newValue ?? defaultFontScale);
   if (STORAGE_KEYS.activeThemeVars in changes || STORAGE_KEYS.activeThemeId in changes) {
     applyStoredActiveTheme().catch(error => showError(error.message));
   }
